@@ -10,7 +10,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class SortInventory {
     private static final int HOTBAR_SIZE = 9;
@@ -49,7 +48,7 @@ public class SortInventory {
     private static DefaultedList<ItemStack> sortAndFilterInventory(Map<String, ItemStack> groupedItems) {
         List<ItemStack> sortedList = groupedItems.values().stream()
                 .sorted(Comparator.comparing(stack -> stack.getItem().getName(stack).getString()))
-                .collect(Collectors.toList());
+                .toList();
 
         return DefaultedList.copyOf(ItemStack.EMPTY, sortedList.toArray(new ItemStack[0]));
     }
