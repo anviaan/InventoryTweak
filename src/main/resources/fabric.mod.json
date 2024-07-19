@@ -3,19 +3,20 @@
 	"id": "smartinventory",
 	"version": "${version}",
 	"name": "SmartInventory",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A simple inventory management mod for Minecraft",
 	"authors": [
-		"Me!"
+		"anvian"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "",
+		"sources": "https://github.com/anviaan/SmartInventory",
+		"issues": "https://github.com/anviaan/SmartInventory/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "GPL-3.0",
 	"icon": "assets/smartinventory/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
+		"client": [
 			"net.anvian.smartinventory.SmartInventory"
 		]
 	},
@@ -24,7 +25,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
-		"minecraft": "~1.21",
+		"minecraft": ">=1.21",
 		"java": ">=21",
 		"fabric-api": "*"
 	},

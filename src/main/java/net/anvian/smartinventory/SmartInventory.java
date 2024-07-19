@@ -1,22 +1,41 @@
 package net.anvian.smartinventory;
 
-import net.fabricmc.api.ModInitializer;
-
+import net.anvian.smartinventory.event.KeyInput;
+import net.fabricmc.api.ClientModInitializer;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.screen.ScreenHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SmartInventory implements ModInitializer {
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
-    public static final Logger LOGGER = LoggerFactory.getLogger("smartinventory");
+public class SmartInventory implements ClientModInitializer {
+    public static final String MOD_ID = "smartinventory";
+    public static final String MOD_NAME = "Smart Inventory";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
-	@Override
-	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
 
-		LOGGER.info("Hello Fabric world!");
-	}
+    @Override
+    public void onInitializeClient() {
+        LOGGER.info("Hello from " + MOD_NAME + "!");
+
+        KeyInput.register();
+    }
+
+    public static MinecraftClient getClient() {
+        return MinecraftClient.getInstance();
+    }
+
+    public static ClientPlayerEntity getPlayer() {
+        return MinecraftClient.getInstance().player;
+    }
+
+    public static Screen getScreen() {
+        return MinecraftClient.getInstance().currentScreen;
+    }
+
+    public static ScreenHandler getScreenHandler() {
+        assert MinecraftClient.getInstance().player != null;
+        return MinecraftClient.getInstance().player.currentScreenHandler;
+    }
 }
