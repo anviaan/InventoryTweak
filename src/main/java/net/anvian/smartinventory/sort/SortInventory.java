@@ -14,21 +14,24 @@ import java.util.Map;
 public class SortInventory {
     private static final int HOTBAR_SIZE = 9;
 
-    public static void sort(MinecraftClient client) {
+    public static void sortPlayerInventory(MinecraftClient client) {
         PlayerEntity player = client.player;
         if (player == null) return;
 
         DefaultedList<ItemStack> inventory = player.getInventory().main;
-        Map<String, ItemStack> groupedItems = groupItems(inventory);
+        Map<String, ItemStack> groupedItems = groupItems(inventory, HOTBAR_SIZE);
         DefaultedList<ItemStack> sortedInventory = sortAndFilterInventory(groupedItems);
 
-        updatePlayerInventory(inventory, sortedInventory);
+        updateInventory(inventory, sortedInventory, HOTBAR_SIZE);
         player.sendMessage(Text.of("Inventario ordenado!"), false);
     }
 
-    private static Map<String, ItemStack> groupItems(DefaultedList<ItemStack> inventory) {
+    private static Map<String, ItemStack> groupItems(DefaultedList<ItemStack> inventory, int start) {
         Map<String, ItemStack> groupedItems = new HashMap<>();
-        for (int i = HOTBAR_SIZE; i < inventory.size(); i++) {
+        MinecraftClient client = MinecraftClient.getInstance();
+        if (client.player == null) return groupedItems;
+
+        for (int i = start; i < inventory.size(); i++) {
             ItemStack stack = inventory.get(i);
             if (!stack.isEmpty()) {
                 String key = stack.getItem().toString();
@@ -53,9 +56,9 @@ public class SortInventory {
         return DefaultedList.copyOf(ItemStack.EMPTY, sortedList.toArray(new ItemStack[0]));
     }
 
-    private static void updatePlayerInventory(DefaultedList<ItemStack> inventory, DefaultedList<ItemStack> sortedInventory) {
-        for (int i = HOTBAR_SIZE; i < inventory.size(); i++) {
-            inventory.set(i, i - HOTBAR_SIZE < sortedInventory.size() ? sortedInventory.get(i - HOTBAR_SIZE) : ItemStack.EMPTY);
+    private static void updateInventory(DefaultedList<ItemStack> inventory, DefaultedList<ItemStack> sortedInventory, int start) {
+        for (int i = start; i < inventory.size(); i++) {
+            inventory.set(i, i - start < sortedInventory.size() ? sortedInventory.get(i - start) : ItemStack.EMPTY);
         }
     }
 }
