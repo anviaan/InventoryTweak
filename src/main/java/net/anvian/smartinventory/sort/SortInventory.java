@@ -1,64 +1,87 @@
 package net.anvian.smartinventory.sort;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.player.PlayerEntity;
+import net.anvian.smartinventory.handler.Interaction;
+import net.anvian.smartinventory.slots.ContainerSlots;
+import net.anvian.smartinventory.slots.InventorySlots;
+import net.anvian.smartinventory.slots.PlayerSlots;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
-import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.screen.ScreenHandler;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class SortInventory {
-    private static final int HOTBAR_SIZE = 9;
-
-    public static void sortPlayerInventory(MinecraftClient client) {
-        PlayerEntity player = client.player;
-        if (player == null) return;
-
-        DefaultedList<ItemStack> inventory = player.getInventory().main;
-        Map<String, ItemStack> groupedItems = groupItems(inventory, HOTBAR_SIZE);
-        DefaultedList<ItemStack> sortedInventory = sortAndFilterInventory(groupedItems);
-
-        updateInventory(inventory, sortedInventory, HOTBAR_SIZE);
-        player.sendMessage(Text.of("Inventario ordenado!"), false);
+    public static void sortPlayerInventory(ScreenHandler screenHandler) {
+        if (cursorCleared(PlayerSlots.get(), screenHandler)) {
+            mergeItemStacks(PlayerSlots.get().excludeOffhand(), screenHandler);
+            sortItemStacks(PlayerSlots.get().excludeOffhand(), screenHandler);
+        }
     }
 
-    private static Map<String, ItemStack> groupItems(DefaultedList<ItemStack> inventory, int start) {
-        Map<String, ItemStack> groupedItems = new HashMap<>();
-        MinecraftClient client = MinecraftClient.getInstance();
-        if (client.player == null) return groupedItems;
+    public static void sortContainerInventory(ScreenHandler screenHandler) {
+        if (cursorCleared(ContainerSlots.get(), screenHandler)) {
+            mergeItemStacks(ContainerSlots.get(), screenHandler);
+            sortItemStacks(ContainerSlots.get(), screenHandler);
+        }
+    }
 
-        for (int i = start; i < inventory.size(); i++) {
-            ItemStack stack = inventory.get(i);
-            if (!stack.isEmpty()) {
-                String key = stack.getItem().toString();
-                groupedItems.merge(key, stack, SortInventory::mergeStacks);
+    private static boolean cursorCleared(InventorySlots inventorySlots, ScreenHandler screenHandler) {
+        if (!Interaction.hasEmptyCursor()) {
+            clearCursor(inventorySlots, screenHandler);
+        }
+        return Interaction.hasEmptyCursor();
+    }
+
+    private static void mergeItemStacks(InventorySlots inventorySlots, ScreenHandler screenHandler) {
+        for (int slot : inventorySlots) {
+            ItemStack stack = screenHandler.getSlot(slot).getStack();
+            if (!stack.isEmpty() && stack.getCount() < stack.getMaxCount()) {
+                Interaction.clickStack(slot);
+                for (int tempSlot = slot + 1; Interaction.getCursorStack().getCount() < Interaction.getCursorStack().getMaxCount()
+                        && tempSlot <= inventorySlots.getLastSlot() && !Interaction.getCursorStack().isEmpty(); tempSlot++) {
+                    if (ItemStack.areItemsEqual(Interaction.getCursorStack(), screenHandler.getSlot(tempSlot).getStack())) {
+                        Interaction.clickStack(tempSlot);
+                    }
+                }
+                if (!Interaction.hasEmptyCursor()) {
+                    Interaction.clickStack(slot);
+                }
             }
         }
-        return groupedItems;
     }
 
-    private static ItemStack mergeStacks(ItemStack existing, ItemStack incoming) {
-        int transferAmount = Math.min(incoming.getCount(), existing.getMaxCount() - existing.getCount());
-        existing.increment(transferAmount);
-        incoming.decrement(transferAmount);
-        return existing.getCount() == 0 ? incoming : existing;
+    private static void sortItemStacks(InventorySlots inventorySlots, ScreenHandler screenHandler) {
+        List<Integer> sortedSlots = getSortedSlots(inventorySlots, screenHandler);
+
+        for (int i = 0; i < sortedSlots.size(); i++) {
+            Interaction.swapStacks(sortedSlots.get(i), inventorySlots.get(i));
+            sortedSlots = getSortedSlots(inventorySlots, screenHandler);
+        }
     }
 
-    private static DefaultedList<ItemStack> sortAndFilterInventory(Map<String, ItemStack> groupedItems) {
-        List<ItemStack> sortedList = groupedItems.values().stream()
-                .sorted(Comparator.comparing(stack -> stack.getItem().getName(stack).getString()))
+    private static List<Integer> getSortedSlots(InventorySlots inventorySlots, ScreenHandler screenHandler) {
+        return inventorySlots.stream()
+                .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
+                .sorted(Comparator.comparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString())
+                        .thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder()))
                 .toList();
-
-        return DefaultedList.copyOf(ItemStack.EMPTY, sortedList.toArray(new ItemStack[0]));
     }
 
-    private static void updateInventory(DefaultedList<ItemStack> inventory, DefaultedList<ItemStack> sortedInventory, int start) {
-        for (int i = start; i < inventory.size(); i++) {
-            inventory.set(i, i - start < sortedInventory.size() ? sortedInventory.get(i - start) : ItemStack.EMPTY);
+    private static void clearCursor(InventorySlots inventorySlots, ScreenHandler screenHandler) {
+        for (int slot : inventorySlots) {
+            if (ItemStack.areItemsEqual(screenHandler.getSlot(slot).getStack(), Interaction.getCursorStack())) {
+                if (!Interaction.hasEmptyCursor()) {
+                    Interaction.clickStack(slot);
+                }
+            }
+        }
+
+        for (int slot : inventorySlots) {
+            if (screenHandler.getSlot(slot).getStack().isEmpty()) {
+                if (!Interaction.hasEmptyCursor()) {
+                    Interaction.clickStack(slot);
+                }
+            }
         }
     }
 }
