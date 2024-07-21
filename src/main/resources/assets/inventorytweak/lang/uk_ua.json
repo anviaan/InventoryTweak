@@ -1,0 +1,8 @@
+{
+    "key.inventorytweak.inventorytweak": "Коригування інвентарю",
+    "key.inventorytweak.sort_inventory_key": "Ключ сортувальника інвентарю",
+    "text.config.inventorytweak-config.title": "Екран конфігурації Inventory Tweak",
+    "text.config.inventorytweak-config.option.sortType": "Тип сортування",
+    "text.config.inventorytweak-config.enum.sortType.name": "Ім'я",
+    "text.config.inventorytweak-config.enum.sortType.type": "Тип"
+}

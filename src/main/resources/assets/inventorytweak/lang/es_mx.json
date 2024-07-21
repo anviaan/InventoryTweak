@@ -1,0 +1,8 @@
+{
+    "key.inventorytweak.inventorytweak": "Ajuste de inventario",
+    "key.inventorytweak.sort_inventory_key": "Clave del clasificador de inventario",
+    "text.config.inventorytweak-config.title": "Pantalla de configuración de ajuste de inventario",
+    "text.config.inventorytweak-config.option.sortType": "Tipo de ordenación",
+    "text.config.inventorytweak-config.enum.sortType.name": "Nombre",
+    "text.config.inventorytweak-config.enum.sortType.type": "Tipo"
+}

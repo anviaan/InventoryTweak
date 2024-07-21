@@ -1,0 +1,8 @@
+{
+    "key.inventorytweak.inventorytweak": "Optimierung des Inventars",
+    "key.inventorytweak.sort_inventory_key": "Schlüssel für den Bestandssortierer",
+    "text.config.inventorytweak-config.title": "Konfigurationsbildschirm für die Inventaroptimierung",
+    "text.config.inventorytweak-config.option.sortType": "Art der Sortierung",
+    "text.config.inventorytweak-config.enum.sortType.name": "Name",
+    "text.config.inventorytweak-config.enum.sortType.type": "Art"
+}

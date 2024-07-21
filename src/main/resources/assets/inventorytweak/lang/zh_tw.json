@@ -1,0 +1,8 @@
+{
+    "key.inventorytweak.inventorytweak": "庫存調整",
+    "key.inventorytweak.sort_inventory_key": "庫存分揀機鍵",
+    "text.config.inventorytweak-config.title": "庫存調整配置螢幕",
+    "text.config.inventorytweak-config.option.sortType": "排序類型",
+    "text.config.inventorytweak-config.enum.sortType.name": "名字",
+    "text.config.inventorytweak-config.enum.sortType.type": "類型"
+}

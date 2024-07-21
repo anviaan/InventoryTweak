@@ -1,0 +1,8 @@
+{
+    "key.inventorytweak.inventorytweak": "Ajustement de l’inventaire",
+    "key.inventorytweak.sort_inventory_key": "Clé de tri d’inventaire",
+    "text.config.inventorytweak-config.title": "Écran de configuration de l’ajustement de l’inventaire",
+    "text.config.inventorytweak-config.option.sortType": "Type de tri",
+    "text.config.inventorytweak-config.enum.sortType.name": "Nom",
+    "text.config.inventorytweak-config.enum.sortType.type": "Type"
+}

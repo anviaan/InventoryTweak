@@ -10,10 +10,10 @@ public class ModKeyBinding {
 
     public static void register() {
         keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "Sort Inventory Key",
+                "key.inventorytweak.sort_inventory_key",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_B,
-                "Smart Inventory"
+                "key.inventorytweak.inventorytweak"
         ));
     }
 }

@@ -1,0 +1,8 @@
+{
+    "key.inventorytweak.inventorytweak": "인벤토리 조정",
+    "key.inventorytweak.sort_inventory_key": "인벤토리 분류기 키",
+    "text.config.inventorytweak-config.title": "Inventory Tweak Config 화면",
+    "text.config.inventorytweak-config.option.sortType": "정렬 유형",
+    "text.config.inventorytweak-config.enum.sortType.name": "이름",
+    "text.config.inventorytweak-config.enum.sortType.type": "형"
+}

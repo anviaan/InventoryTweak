@@ -1,0 +1,9 @@
+{
+  "key.inventorytweak.inventorytweak": "Inventory Tweak",
+  "key.inventorytweak.sort_inventory_key": "Inventory Sorter  Key",
+
+  "text.config.inventorytweak-config.title": "Inventory Tweak Config Screen",
+  "text.config.inventorytweak-config.option.sortType" : "Sort Type",
+  "text.config.inventorytweak-config.enum.sortType.name" : "Name",
+  "text.config.inventorytweak-config.enum.sortType.type" : "Type"
+}

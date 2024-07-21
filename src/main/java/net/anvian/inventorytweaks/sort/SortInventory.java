@@ -1,9 +1,12 @@
 package net.anvian.inventorytweaks.sort;
 
+import net.anvian.inventorytweaks.InventoryTweak;
+import net.anvian.inventorytweaks.config.ModConfig;
 import net.anvian.inventorytweaks.handler.Interaction;
 import net.anvian.inventorytweaks.slots.ContainerSlots;
 import net.anvian.inventorytweaks.slots.InventorySlots;
 import net.anvian.inventorytweaks.slots.PlayerSlots;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 
@@ -60,11 +63,19 @@ public class SortInventory {
     }
 
     private static List<Integer> getSortedSlots(InventorySlots inventorySlots, ScreenHandler screenHandler) {
-        return inventorySlots.stream()
-                .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
-                .sorted(Comparator.comparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString())
-                        .thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder()))
-                .toList();
+        if (InventoryTweak.CONFIG.sortType() == ModConfig.SortType.NAME) {
+            return inventorySlots.stream()
+                    .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
+                    .sorted(Comparator.comparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString())
+                            .thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder()))
+                    .toList();
+        } else {
+            return inventorySlots.stream()
+                    .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
+                    .sorted(Comparator.comparing((Integer slot) -> Item.getRawId(screenHandler.getSlot(slot).getStack().getItem())))
+                    .toList();
+        }
+
     }
 
     private static void clearCursor(InventorySlots inventorySlots, ScreenHandler screenHandler) {
