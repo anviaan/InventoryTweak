@@ -5,9 +5,9 @@ import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SmartInventory implements ClientModInitializer {
-    public static final String MOD_ID = "inventorytweaks";
-    public static final String MOD_NAME = "Inventory Tweaks";
+public class InventoryTweak implements ClientModInitializer {
+    public static final String MOD_ID = "inventorytweak";
+    public static final String MOD_NAME = "Inventory Tweak";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     @Override

@@ -1,27 +1,27 @@
 {
 	"schemaVersion": 1,
-	"id": "inventorytweaks",
+	"id": "inventorytweak",
 	"version": "${version}",
-	"name": "Inventory Tweaks",
+	"name": "Inventory Tweak",
 	"description": "Fast and easy inventory sorter",
 	"authors": [
 		"anvian"
 	],
 	"contact": {
 		"homepage": "",
-		"sources": "https://github.com/anviaan/InventoryTweaks",
-		"issues": "https://github.com/anviaan/InventoryTweaks/issues"
+		"sources": "https://github.com/anviaan/InventoryTweak",
+		"issues": "https://github.com/anviaan/InventoryTweak/issues"
 	},
 	"license": "GPL-3.0",
-	"icon": "assets/inventorytweaks/icon.png",
+	"icon": "assets/inventorytweak/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"net.anvian.inventorytweaks.SmartInventory"
+			"net.anvian.inventorytweaks.InventoryTweak"
 		]
 	},
 	"mixins": [
-		"inventorytweaks.mixins.json"
+		"inventorytweak.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
