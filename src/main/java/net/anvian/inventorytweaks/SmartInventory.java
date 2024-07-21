@@ -1,13 +1,13 @@
-package net.anvian.smartinventory;
+package net.anvian.inventorytweaks;
 
-import net.anvian.smartinventory.handler.ModKeyBinding;
+import net.anvian.inventorytweaks.handler.ModKeyBinding;
 import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class SmartInventory implements ClientModInitializer {
-    public static final String MOD_ID = "smartinventory";
-    public static final String MOD_NAME = "Smart Inventory";
+    public static final String MOD_ID = "inventorytweaks";
+    public static final String MOD_NAME = "Inventory Tweaks";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     @Override

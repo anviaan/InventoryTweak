@@ -1,4 +1,4 @@
-package net.anvian.smartinventory.handler;
+package net.anvian.inventorytweaks.handler;
 
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;

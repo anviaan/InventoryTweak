@@ -1,4 +1,4 @@
-package net.anvian.smartinventory.slots;
+package net.anvian.inventorytweaks.slots;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;

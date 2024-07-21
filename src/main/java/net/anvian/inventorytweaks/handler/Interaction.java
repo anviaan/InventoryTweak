@@ -1,4 +1,4 @@
-package net.anvian.smartinventory.handler;
+package net.anvian.inventorytweaks.handler;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;

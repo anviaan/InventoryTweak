@@ -1,7 +1,7 @@
-package net.anvian.smartinventory.mixin;
+package net.anvian.inventorytweaks.mixin;
 
-import net.anvian.smartinventory.handler.ModKeyBinding;
-import net.anvian.smartinventory.sort.SortInventory;
+import net.anvian.inventorytweaks.handler.ModKeyBinding;
+import net.anvian.inventorytweaks.sort.SortInventory;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;

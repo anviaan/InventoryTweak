@@ -1,9 +1,9 @@
-package net.anvian.smartinventory.sort;
+package net.anvian.inventorytweaks.sort;
 
-import net.anvian.smartinventory.handler.Interaction;
-import net.anvian.smartinventory.slots.ContainerSlots;
-import net.anvian.smartinventory.slots.InventorySlots;
-import net.anvian.smartinventory.slots.PlayerSlots;
+import net.anvian.inventorytweaks.handler.Interaction;
+import net.anvian.inventorytweaks.slots.ContainerSlots;
+import net.anvian.inventorytweaks.slots.InventorySlots;
+import net.anvian.inventorytweaks.slots.PlayerSlots;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 

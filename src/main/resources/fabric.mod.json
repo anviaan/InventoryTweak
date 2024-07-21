@@ -1,27 +1,27 @@
 {
 	"schemaVersion": 1,
-	"id": "smartinventory",
+	"id": "inventorytweaks",
 	"version": "${version}",
-	"name": "SmartInventory",
+	"name": "Inventory Tweaks",
 	"description": "A simple inventory management mod for Minecraft",
 	"authors": [
 		"anvian"
 	],
 	"contact": {
 		"homepage": "",
-		"sources": "https://github.com/anviaan/SmartInventory",
-		"issues": "https://github.com/anviaan/SmartInventory/issues"
+		"sources": "https://github.com/anviaan/InventoryTweaks",
+		"issues": "https://github.com/anviaan/InventoryTweaks/issues"
 	},
 	"license": "GPL-3.0",
-	"icon": "assets/smartinventory/icon.png",
+	"icon": "assets/inventorytweaks/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"net.anvian.smartinventory.SmartInventory"
+			"net.anvian.inventorytweaks.SmartInventory"
 		]
 	},
 	"mixins": [
-		"smartinventory.mixins.json"
+		"inventorytweaks.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
