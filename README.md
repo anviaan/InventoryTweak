@@ -1,1 +1,3 @@
-# SmartInventory
+# Inventory Tweak
+
+This mod introduces a comprehensive solution to the often cumbersome task of managing and organizing inventory in Minecraft, significantly enhancing the player's experience. With fast and easy inventory sorting capabilities, **players can activate the mod with a simple key press, which is defaulted to 'B'**. This feature automatically organizes not only the player's inventory but also any open containers, such as chests and shulker boxes, streamlining gameplay and making inventory management much more efficient.
