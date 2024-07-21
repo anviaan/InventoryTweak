@@ -3,7 +3,7 @@
 	"id": "inventorytweaks",
 	"version": "${version}",
 	"name": "Inventory Tweaks",
-	"description": "A simple inventory management mod for Minecraft",
+	"description": "Fast and easy inventory sorter",
 	"authors": [
 		"anvian"
 	],
