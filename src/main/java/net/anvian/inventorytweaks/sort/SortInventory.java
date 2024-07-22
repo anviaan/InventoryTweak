@@ -72,7 +72,8 @@ public class SortInventory {
         } else {
             return inventorySlots.stream()
                     .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
-                    .sorted(Comparator.comparing((Integer slot) -> Item.getRawId(screenHandler.getSlot(slot).getStack().getItem())))
+                    .sorted(Comparator.comparing((Integer slot) -> Item.getRawId(screenHandler.getSlot(slot).getStack().getItem()))
+                            .thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder()))
                     .toList();
         }
 
