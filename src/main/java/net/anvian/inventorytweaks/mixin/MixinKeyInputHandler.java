@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinKeyInputHandler {
     @Inject(method = "keyPressed", at = @At("HEAD"))
     private void onKeyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
-        if (keyCode == ModKeyBinding.keyBinding.getDefaultKey().getCode()) {
+        if (ModKeyBinding.keyBinding.matchesKey(keyCode, scanCode)) {
             ScreenHandler screenHandler = MinecraftClient.getInstance().player.currentScreenHandler;
             Screen screen = MinecraftClient.getInstance().currentScreen;
 
