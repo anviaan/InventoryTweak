@@ -1,5 +1,6 @@
 package net.anvian.inventorytweaks.mixin;
 
+import net.anvian.inventorytweaks.InventoryTweak;
 import net.anvian.inventorytweaks.handler.ModKeyBinding;
 import net.anvian.inventorytweaks.sort.SortInventory;
 import net.minecraft.client.MinecraftClient;
@@ -17,14 +18,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinKeyInputHandler {
     @Inject(method = "keyPressed", at = @At("HEAD"))
     private void onKeyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
-        if (ModKeyBinding.keyBinding.matchesKey(keyCode, scanCode)) {
-            ScreenHandler screenHandler = MinecraftClient.getInstance().player.currentScreenHandler;
-            Screen screen = MinecraftClient.getInstance().currentScreen;
+        if (InventoryTweak.CONFIG.activateSortingInventory()) {
+            if (ModKeyBinding.keyBinding.matchesKey(keyCode, scanCode)) {
+                ScreenHandler screenHandler = MinecraftClient.getInstance().player.currentScreenHandler;
+                Screen screen = MinecraftClient.getInstance().currentScreen;
 
-            if (screen instanceof InventoryScreen || screen instanceof CreativeInventoryScreen) {
-                SortInventory.sortPlayerInventory(screenHandler);
-            } else {
-                SortInventory.sortContainerInventory(screenHandler);
+                if (screen instanceof InventoryScreen || screen instanceof CreativeInventoryScreen) {
+                    SortInventory.sortPlayerInventory(screenHandler);
+                } else {
+                    SortInventory.sortContainerInventory(screenHandler);
+                }
             }
         }
     }

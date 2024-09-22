@@ -2,7 +2,13 @@
     "key.inventorytweak.inventorytweak": "Настройка инвентаря",
     "key.inventorytweak.sort_inventory_key": "Ключ сортировщика инвентаря",
     "text.config.inventorytweak-config.title": "Экран настройки инвентаря",
+    "text.config.inventorytweak-config.section.sortingInventorySection": "Секция сортировки инвентаря",
+    "text.config.inventorytweak-config.option.activateSortingInventory": "Активировать сортировку инвентаря",
     "text.config.inventorytweak-config.option.sortType": "Тип сортировки",
     "text.config.inventorytweak-config.enum.sortType.name": "Имя",
-    "text.config.inventorytweak-config.enum.sortType.type": "Тип"
+    "text.config.inventorytweak-config.enum.sortType.type": "Тип",
+    "text.config.inventorytweak-config.section.durabilityWarningSection": "Раздел «Предупреждение о долговечности»",
+    "text.config.inventorytweak-config.option.activateDurabilityWarning": "Активировать предупреждение о долговечности",
+    "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Предупреждение о процентной прочности",
+    "inventorytweak.durabilityWarningMessage": "Низкая прочность!"
 }

@@ -1,8 +1,14 @@
 {
     "key.inventorytweak.inventorytweak": "Modyfikacja ekwipunku",
     "key.inventorytweak.sort_inventory_key": "Klucz sortowania zapasów",
-    "text.config.inventorytweak-config.title": "Ekran konfiguracji modyfikacji ekwipunku",
+    "text.config.inventorytweak-config.title": "Ekran konfiguracji modyfikacji inwentarza",
+    "text.config.inventorytweak-config.section.sortingInventorySection": "Sekcja sortowania zapasów",
+    "text.config.inventorytweak-config.option.activateSortingInventory": "Aktywuj sortowanie zapasów",
     "text.config.inventorytweak-config.option.sortType": "Typ sortowania",
     "text.config.inventorytweak-config.enum.sortType.name": "Nazwa",
-    "text.config.inventorytweak-config.enum.sortType.type": "Typ"
+    "text.config.inventorytweak-config.enum.sortType.type": "Typ",
+    "text.config.inventorytweak-config.section.durabilityWarningSection": "Sekcja Ostrzeżenia o Trwałości",
+    "text.config.inventorytweak-config.option.activateDurabilityWarning": "Aktywuj ostrzeżenie o trwałości",
+    "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Ostrzeżenie o trwałości procentowej",
+    "inventorytweak.durabilityWarningMessage": "Niska trwałość!"
 }

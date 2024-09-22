@@ -1,8 +1,14 @@
 {
     "key.inventorytweak.inventorytweak": "Ajuste de inventário",
-    "key.inventorytweak.sort_inventory_key": "Chave do classificador de estoque",
-    "text.config.inventorytweak-config.title": "Tela de configuração de ajuste de inventário",
+    "key.inventorytweak.sort_inventory_key": "Chave do classificador de inventário",
+    "text.config.inventorytweak-config.title": "Tela de configuração do Inventory Tweak",
+    "text.config.inventorytweak-config.section.sortingInventorySection": "Seção de classificação de estoque",
+    "text.config.inventorytweak-config.option.activateSortingInventory": "Ativar inventário de classificação",
     "text.config.inventorytweak-config.option.sortType": "Tipo de classificação",
     "text.config.inventorytweak-config.enum.sortType.name": "Nome",
-    "text.config.inventorytweak-config.enum.sortType.type": "Tipo"
+    "text.config.inventorytweak-config.enum.sortType.type": "Tipo",
+    "text.config.inventorytweak-config.section.durabilityWarningSection": "Seção de Aviso de Durabilidade",
+    "text.config.inventorytweak-config.option.activateDurabilityWarning": "Ativar Aviso de Durabilidade",
+    "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Aviso de durabilidade percentual",
+    "inventorytweak.durabilityWarningMessage": "Baixa durabilidade!"
 }

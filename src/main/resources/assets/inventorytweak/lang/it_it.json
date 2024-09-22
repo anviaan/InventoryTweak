@@ -1,8 +1,14 @@
 {
     "key.inventorytweak.inventorytweak": "Modifica dell'inventario",
-    "key.inventorytweak.sort_inventory_key": "Chiave di smistamento inventario",
+    "key.inventorytweak.sort_inventory_key": "Chiave di selezione dell'inventario",
     "text.config.inventorytweak-config.title": "Schermata di configurazione delle modifiche all'inventario",
+    "text.config.inventorytweak-config.section.sortingInventorySection": "Sezione inventario ordinamento",
+    "text.config.inventorytweak-config.option.activateSortingInventory": "Attiva inventario di ordinamento",
     "text.config.inventorytweak-config.option.sortType": "Tipo di ordinamento",
     "text.config.inventorytweak-config.enum.sortType.name": "Nome",
-    "text.config.inventorytweak-config.enum.sortType.type": "Digitare"
+    "text.config.inventorytweak-config.enum.sortType.type": "Tipo",
+    "text.config.inventorytweak-config.section.durabilityWarningSection": "Sezione di avvertenza sulla durata",
+    "text.config.inventorytweak-config.option.activateDurabilityWarning": "Attiva avviso di durata",
+    "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Percentage Durability Warning",
+    "inventorytweak.durabilityWarningMessage": "Bassa durabilità!"
 }

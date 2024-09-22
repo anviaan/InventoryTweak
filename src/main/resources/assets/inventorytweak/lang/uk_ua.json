@@ -1,8 +1,14 @@
 {
-    "key.inventorytweak.inventorytweak": "Коригування інвентарю",
+    "key.inventorytweak.inventorytweak": "Налаштування інвентарю",
     "key.inventorytweak.sort_inventory_key": "Ключ сортувальника інвентарю",
     "text.config.inventorytweak-config.title": "Екран конфігурації Inventory Tweak",
+    "text.config.inventorytweak-config.section.sortingInventorySection": "Розділ сортування інвентарю",
+    "text.config.inventorytweak-config.option.activateSortingInventory": "Активуйте сортування інвентарю",
     "text.config.inventorytweak-config.option.sortType": "Тип сортування",
     "text.config.inventorytweak-config.enum.sortType.name": "Ім'я",
-    "text.config.inventorytweak-config.enum.sortType.type": "Тип"
+    "text.config.inventorytweak-config.enum.sortType.type": "Тип",
+    "text.config.inventorytweak-config.section.durabilityWarningSection": "Розділ попередження про довговічність",
+    "text.config.inventorytweak-config.option.activateDurabilityWarning": "Активувати попередження про довговічність",
+    "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Попередження про довговічність у відсотках",
+    "inventorytweak.durabilityWarningMessage": "Низька довговічність!"
 }

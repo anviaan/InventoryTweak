@@ -1,8 +1,14 @@
 {
     "key.inventorytweak.inventorytweak": "库存调整",
-    "key.inventorytweak.sort_inventory_key": "库存分拣机键",
+    "key.inventorytweak.sort_inventory_key": "库存分类器钥匙",
     "text.config.inventorytweak-config.title": "库存调整配置屏幕",
+    "text.config.inventorytweak-config.section.sortingInventorySection": "分类库存部分",
+    "text.config.inventorytweak-config.option.activateSortingInventory": "激活库存分类",
     "text.config.inventorytweak-config.option.sortType": "排序类型",
-    "text.config.inventorytweak-config.enum.sortType.name": "名字",
-    "text.config.inventorytweak-config.enum.sortType.type": "类型"
+    "text.config.inventorytweak-config.enum.sortType.name": "姓名",
+    "text.config.inventorytweak-config.enum.sortType.type": "类型",
+    "text.config.inventorytweak-config.section.durabilityWarningSection": "耐久性警告部分",
+    "text.config.inventorytweak-config.option.activateDurabilityWarning": "激活耐久性警告",
+    "text.config.inventorytweak-config.option.percentageDurabilityWarning": "百分比耐久性警告",
+    "inventorytweak.durabilityWarningMessage": "耐久度低！"
 }

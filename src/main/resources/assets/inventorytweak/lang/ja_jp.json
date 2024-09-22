@@ -1,8 +1,14 @@
 {
     "key.inventorytweak.inventorytweak": "インベントリの調整",
-    "key.inventorytweak.sort_inventory_key": "インベントリソーターキー",
-    "text.config.inventorytweak-config.title": "Inventory Tweak Config画面",
-    "text.config.inventorytweak-config.option.sortType": "ソートタイプ",
+    "key.inventorytweak.sort_inventory_key": "在庫仕分けキー",
+    "text.config.inventorytweak-config.title": "インベントリ調整設定画面",
+    "text.config.inventorytweak-config.section.sortingInventorySection": "在庫整理セクション",
+    "text.config.inventorytweak-config.option.activateSortingInventory": "在庫の並べ替えを有効にする",
+    "text.config.inventorytweak-config.option.sortType": "並べ替えの種類",
     "text.config.inventorytweak-config.enum.sortType.name": "名前",
-    "text.config.inventorytweak-config.enum.sortType.type": "種類"
+    "text.config.inventorytweak-config.enum.sortType.type": "タイプ",
+    "text.config.inventorytweak-config.section.durabilityWarningSection": "耐久性警告セクション",
+    "text.config.inventorytweak-config.option.activateDurabilityWarning": "耐久性警告を有効にする",
+    "text.config.inventorytweak-config.option.percentageDurabilityWarning": "耐久性警告率",
+    "inventorytweak.durabilityWarningMessage": "耐久性が低い！"
 }

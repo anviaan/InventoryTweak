@@ -1,3 +1,15 @@
 # Inventory Tweak
 
-This mod introduces a comprehensive solution to the often cumbersome task of managing and organizing inventory in Minecraft, significantly enhancing the player's experience. With fast and easy inventory sorting capabilities, **players can activate the mod with a simple key press, which is defaulted to 'B'**. This feature automatically organizes not only the player's inventory but also any open containers, such as chests and shulker boxes, streamlining gameplay and making inventory management much more efficient.
+This mod introduces a comprehensive solution to the often cumbersome task of managing and organizing inventory in Minecraft, significantly enhancing the player's experience. 
+
+## Features
+- Sort Inventory:
+  - Activated with a key press (defaulted to 'B')
+  - Organizes the player's inventory and with any open containers, such as chests and shulker boxes, etc.
+    - By Type
+    - By Name
+  - Can be disabled
+- Durability Warning:
+  - Displays a warning when an item is about to break
+  - Can be customized to display at different durability percentages (defaulted to 10%)
+  - Can be disabled

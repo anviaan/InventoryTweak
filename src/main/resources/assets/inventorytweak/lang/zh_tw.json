@@ -1,8 +1,14 @@
 {
     "key.inventorytweak.inventorytweak": "庫存調整",
-    "key.inventorytweak.sort_inventory_key": "庫存分揀機鍵",
-    "text.config.inventorytweak-config.title": "庫存調整配置螢幕",
+    "key.inventorytweak.sort_inventory_key": "庫存分類機鑰匙",
+    "text.config.inventorytweak-config.title": "庫存調整配置畫面",
+    "text.config.inventorytweak-config.section.sortingInventorySection": "庫存分類部分",
+    "text.config.inventorytweak-config.option.activateSortingInventory": "啟動庫存排序",
     "text.config.inventorytweak-config.option.sortType": "排序類型",
-    "text.config.inventorytweak-config.enum.sortType.name": "名字",
-    "text.config.inventorytweak-config.enum.sortType.type": "類型"
+    "text.config.inventorytweak-config.enum.sortType.name": "姓名",
+    "text.config.inventorytweak-config.enum.sortType.type": "類型",
+    "text.config.inventorytweak-config.section.durabilityWarningSection": "耐久性警告部分",
+    "text.config.inventorytweak-config.option.activateDurabilityWarning": "啟動耐久性警告",
+    "text.config.inventorytweak-config.option.percentageDurabilityWarning": "百分比耐久性警告",
+    "inventorytweak.durabilityWarningMessage": "耐久度低！"
 }
