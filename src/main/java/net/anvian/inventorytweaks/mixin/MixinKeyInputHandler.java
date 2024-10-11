@@ -32,6 +32,10 @@ public class MixinKeyInputHandler {
 
     @Unique
     private void inventoryTweakSortingKeyPressed() {
+        if (MinecraftClient.getInstance().player == null) {
+            return;
+        }
+
         ScreenHandler screenHandler = MinecraftClient.getInstance().player.currentScreenHandler;
         Screen screen = MinecraftClient.getInstance().currentScreen;
 
