@@ -9,6 +9,7 @@ import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.screen.ScreenHandler;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -18,14 +19,26 @@ public class MixinKeyInputHandler {
     @Inject(method = "keyPressed", at = @At("HEAD"))
     private void onKeyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
         if (ModKeyBinding.keyBinding.matchesKey(keyCode, scanCode)) {
-            ScreenHandler screenHandler = MinecraftClient.getInstance().player.currentScreenHandler;
-            Screen screen = MinecraftClient.getInstance().currentScreen;
+            inventoryTweakSortingKeyPressed();
+        }
+    }
 
-            if (screen instanceof InventoryScreen || screen instanceof CreativeInventoryScreen) {
-                SortInventory.sortPlayerInventory(screenHandler);
-            } else {
-                SortInventory.sortContainerInventory(screenHandler);
-            }
+    @Inject(method = "mouseClicked", at = @At("HEAD"))
+    private void onMouseClicked(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir) {
+        if (ModKeyBinding.keyBinding.matchesMouse(button)) {
+            inventoryTweakSortingKeyPressed();
+        }
+    }
+
+    @Unique
+    private void inventoryTweakSortingKeyPressed() {
+        ScreenHandler screenHandler = MinecraftClient.getInstance().player.currentScreenHandler;
+        Screen screen = MinecraftClient.getInstance().currentScreen;
+
+        if (screen instanceof InventoryScreen || screen instanceof CreativeInventoryScreen) {
+            SortInventory.sortPlayerInventory(screenHandler);
+        } else {
+            SortInventory.sortContainerInventory(screenHandler);
         }
     }
 }
