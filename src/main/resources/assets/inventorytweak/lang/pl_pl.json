@@ -10,5 +10,7 @@
     "text.config.inventorytweak-config.section.durabilityWarningSection": "Sekcja Ostrzeżenia o Trwałości",
     "text.config.inventorytweak-config.option.activateDurabilityWarning": "Aktywuj ostrzeżenie o trwałości",
     "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Ostrzeżenie o trwałości procentowej",
-    "inventorytweak.durabilityWarningMessage": "Niska trwałość!"
+    "text.config.inventorytweak-config.option.activateDurabilityWarningSound": "Włącz dźwięk ostrzegawczy trwałości",
+    "text.config.inventorytweak-config.option.durabilityWarningSoundVolume": "Ostrzeżenie o trwałości Głośność dźwięku",
+    "inventorytweak.durabilityWarningMessage": "Niska trwałość"
 }

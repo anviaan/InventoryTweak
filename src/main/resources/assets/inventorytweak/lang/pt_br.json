@@ -10,5 +10,7 @@
     "text.config.inventorytweak-config.section.durabilityWarningSection": "Seção de Aviso de Durabilidade",
     "text.config.inventorytweak-config.option.activateDurabilityWarning": "Ativar Aviso de Durabilidade",
     "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Aviso de durabilidade percentual",
-    "inventorytweak.durabilityWarningMessage": "Baixa durabilidade!"
+    "text.config.inventorytweak-config.option.activateDurabilityWarningSound": "Ativar som de aviso de durabilidade",
+    "text.config.inventorytweak-config.option.durabilityWarningSoundVolume": "Volume do som de aviso de durabilidade",
+    "inventorytweak.durabilityWarningMessage": "Baixa durabilidade"
 }

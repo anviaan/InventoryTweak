@@ -9,6 +9,8 @@
     "text.config.inventorytweak-config.enum.sortType.type": "Tipo",
     "text.config.inventorytweak-config.section.durabilityWarningSection": "Sezione di avvertenza sulla durata",
     "text.config.inventorytweak-config.option.activateDurabilityWarning": "Attiva avviso di durata",
-    "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Percentage Durability Warning",
-    "inventorytweak.durabilityWarningMessage": "Bassa durabilità!"
+    "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Avviso di durata percentuale",
+    "text.config.inventorytweak-config.option.activateDurabilityWarningSound": "Attiva il suono di avviso di durata",
+    "text.config.inventorytweak-config.option.durabilityWarningSoundVolume": "Volume del suono di avviso di durata",
+    "inventorytweak.durabilityWarningMessage": "Bassa durabilità"
 }

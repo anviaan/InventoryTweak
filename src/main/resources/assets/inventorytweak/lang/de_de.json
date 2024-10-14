@@ -10,5 +10,7 @@
     "text.config.inventorytweak-config.section.durabilityWarningSection": "Abschnitt „Warnung zur Haltbarkeit“",
     "text.config.inventorytweak-config.option.activateDurabilityWarning": "Haltbarkeitswarnung aktivieren",
     "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Prozentuale Haltbarkeitswarnung",
-    "inventorytweak.durabilityWarningMessage": "Geringe Haltbarkeit!"
+    "text.config.inventorytweak-config.option.activateDurabilityWarningSound": "Haltbarkeitswarnton aktivieren",
+    "text.config.inventorytweak-config.option.durabilityWarningSoundVolume": "Haltbarkeitswarnton-Lautstärke",
+    "inventorytweak.durabilityWarningMessage": "Geringe Haltbarkeit"
 }

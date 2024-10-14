@@ -10,5 +10,7 @@
     "text.config.inventorytweak-config.section.durabilityWarningSection": "Розділ попередження про довговічність",
     "text.config.inventorytweak-config.option.activateDurabilityWarning": "Активувати попередження про довговічність",
     "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Попередження про довговічність у відсотках",
-    "inventorytweak.durabilityWarningMessage": "Низька довговічність!"
+    "text.config.inventorytweak-config.option.activateDurabilityWarningSound": "Увімкніть звук попередження про довговічність",
+    "text.config.inventorytweak-config.option.durabilityWarningSoundVolume": "Гучність звуку попередження про довговічність",
+    "inventorytweak.durabilityWarningMessage": "Низька довговічність"
 }

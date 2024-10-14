@@ -10,5 +10,7 @@
     "text.config.inventorytweak-config.section.durabilityWarningSection": "耐久性警告部分",
     "text.config.inventorytweak-config.option.activateDurabilityWarning": "啟動耐久性警告",
     "text.config.inventorytweak-config.option.percentageDurabilityWarning": "百分比耐久性警告",
-    "inventorytweak.durabilityWarningMessage": "耐久度低！"
+    "text.config.inventorytweak-config.option.activateDurabilityWarningSound": "啟動耐久性警告音",
+    "text.config.inventorytweak-config.option.durabilityWarningSoundVolume": "耐久性警告音量",
+    "inventorytweak.durabilityWarningMessage": "耐久性低"
 }

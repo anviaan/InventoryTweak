@@ -10,5 +10,7 @@
     "text.config.inventorytweak-config.section.durabilityWarningSection": "Раздел «Предупреждение о долговечности»",
     "text.config.inventorytweak-config.option.activateDurabilityWarning": "Активировать предупреждение о долговечности",
     "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Предупреждение о процентной прочности",
-    "inventorytweak.durabilityWarningMessage": "Низкая прочность!"
+    "text.config.inventorytweak-config.option.activateDurabilityWarningSound": "Активировать предупреждающий звук о долговечности",
+    "text.config.inventorytweak-config.option.durabilityWarningSoundVolume": "Громкость звука предупреждения о долговечности",
+    "inventorytweak.durabilityWarningMessage": "Низкая прочность"
 }
