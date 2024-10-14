@@ -4,10 +4,14 @@ import net.anvian.inventorytweaks.InventoryTweak;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
 public class DurabilityWarning implements ClientTickEvents.StartTick {
+    private boolean soundPlayed = false;
+
     @Override
     public void onStartTick(MinecraftClient client) {
         if (InventoryTweak.CONFIG.activateDurabilityWarning()) {
@@ -19,6 +23,11 @@ public class DurabilityWarning implements ClientTickEvents.StartTick {
                     float durabilityPercentage = ((float) durability / itemStack.getMaxDamage()) * 100;
 
                     if (durabilityPercentage <= InventoryTweak.CONFIG.percentageDurabilityWarning()) {
+                        if (!soundPlayed) {
+                            client.player.playSoundToPlayer(SoundEvents.ENTITY_IRON_GOLEM_REPAIR, SoundCategory.PLAYERS, 1.0F, 3.0F);
+                            soundPlayed = true;
+                        }
+
                         Text text = Text
                                 .literal("⚠ ")
                                 .append(Text.translatable(InventoryTweak.MOD_ID + ".durabilityWarningMessage"))
@@ -27,7 +36,11 @@ public class DurabilityWarning implements ClientTickEvents.StartTick {
                                 .append("% ⚠")
                                 .formatted(Formatting.RED);
                         client.player.sendMessage(text, true);
+                    } else {
+                        soundPlayed = false;
                     }
+                } else {
+                    soundPlayed = false;
                 }
             }
         }
