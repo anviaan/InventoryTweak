@@ -23,8 +23,9 @@ public class DurabilityWarning implements ClientTickEvents.StartTick {
                     float durabilityPercentage = ((float) durability / itemStack.getMaxDamage()) * 100;
 
                     if (durabilityPercentage <= InventoryTweak.CONFIG.percentageDurabilityWarning()) {
-                        if (!soundPlayed) {
-                            client.player.playSoundToPlayer(SoundEvents.ENTITY_IRON_GOLEM_REPAIR, SoundCategory.PLAYERS, 1.0F, 3.0F);
+                        if (InventoryTweak.CONFIG.activateDurabilityWarningSound() && !soundPlayed) {
+                            float volume = (float) InventoryTweak.CONFIG.durabilityWarningSoundVolume() / 100.0F;
+                            client.player.playSoundToPlayer(SoundEvents.ENTITY_IRON_GOLEM_REPAIR, SoundCategory.PLAYERS, volume, 3.0F);
                             soundPlayed = true;
                         }
 
