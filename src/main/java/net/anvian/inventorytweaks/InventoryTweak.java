@@ -19,7 +19,6 @@ public class InventoryTweak implements ClientModInitializer {
     public void onInitializeClient() {
         LOGGER.info("Hello from " + MOD_NAME + "!");
         ModKeyBinding.register();
-
-        ClientTickEvents.END_CLIENT_TICK.register(new DurabilityWarning());
+        ClientTickEvents.START_CLIENT_TICK.register(new DurabilityWarning());
     }
 }

@@ -4,30 +4,29 @@ import net.anvian.inventorytweaks.InventoryTweak;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
-public class DurabilityWarning implements ClientTickEvents.EndTick {
+public class DurabilityWarning implements ClientTickEvents.StartTick {
     @Override
-    public void onEndTick(MinecraftClient client) {
+    public void onStartTick(MinecraftClient client) {
         if (InventoryTweak.CONFIG.activateDurabilityWarning()) {
             if (client.player != null) {
                 ItemStack itemStack = client.player.getMainHandStack();
 
-                if (itemStack.isDamageable()) {
-                    int maxDurability = itemStack.getMaxDamage();
-                    int currentDurability = maxDurability - itemStack.getDamage();
-                    int maxDurabilityWarning = maxDurability * (InventoryTweak.CONFIG.percentageDurabilityWarning()) / 100;
+                if (!itemStack.isEmpty() && itemStack.isDamaged()) {
+                    int durability = itemStack.getMaxDamage() - itemStack.getDamage();
+                    float durabilityPercentage = ((float) durability / itemStack.getMaxDamage()) * 100;
 
-                    if (currentDurability == maxDurability * maxDurabilityWarning) {
-                        client.player.playSoundToPlayer(SoundEvents.ENTITY_ENDER_DRAGON_HURT, SoundCategory.PLAYERS, 1.0F, 1.0F);
-                    }
-
-                    if (currentDurability < maxDurability * maxDurabilityWarning) {
-                        Text durabilityWaringMessage = Text.translatable(InventoryTweak.MOD_ID + ".durabilityWarningMessage").formatted(Formatting.RED);
-                        client.player.sendMessage(durabilityWaringMessage, true);
+                    if (durabilityPercentage <= InventoryTweak.CONFIG.percentageDurabilityWarning()) {
+                        Text text = Text
+                                .literal("⚠ ")
+                                .append(Text.translatable(InventoryTweak.MOD_ID + ".durabilityWarningMessage"))
+                                .append(": ")
+                                .append(String.format("%.1f", durabilityPercentage))
+                                .append("% ⚠")
+                                .formatted(Formatting.RED);
+                        client.player.sendMessage(text, true);
                     }
                 }
             }

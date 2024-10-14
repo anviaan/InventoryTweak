@@ -21,4 +21,5 @@ public class ModConfig {
     public boolean activateDurabilityWarning = true;
     @RangeConstraint(min = 0, max = 100)
     public byte percentageDurabilityWarning = 10;
+    public boolean activateDurabilityWarningSound = true;
 }
