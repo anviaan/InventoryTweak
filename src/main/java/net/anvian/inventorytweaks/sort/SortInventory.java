@@ -71,6 +71,7 @@ public class SortInventory {
             case TYPE -> inventorySlots.stream()
                     .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
                     .sorted(Comparator.comparing((Integer slot) -> Item.getRawId(screenHandler.getSlot(slot).getStack().getItem()))
+                            .thenComparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString())
                             .thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder()))
                     .toList();
             case RARITY -> inventorySlots.stream()
