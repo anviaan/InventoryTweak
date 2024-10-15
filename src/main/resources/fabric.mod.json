@@ -12,6 +12,14 @@
     "sources": "https://github.com/anviaan/InventoryTweak",
     "issues": "https://github.com/anviaan/InventoryTweak/issues"
   },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/inventorytweak",
+        "modmenu.modrinth": "https://modrinth.com/mod/inventorytweak"
+      }
+    }
+  },
   "license": "GPL-3.0",
   "icon": "assets/inventorytweak/icon.png",
   "environment": "client",
