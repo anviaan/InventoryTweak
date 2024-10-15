@@ -7,8 +7,9 @@
   "text.config.inventorytweak-config.section.sortingInventorySection": "Sorting Inventory Section",
   "text.config.inventorytweak-config.option.activateSortingInventory": "Activate Sorting Inventory",
   "text.config.inventorytweak-config.option.sortType": "Sort Type",
-  "text.config.inventorytweak-config.enum.sortType.name": "Name",
   "text.config.inventorytweak-config.enum.sortType.type": "Type",
+  "text.config.inventorytweak-config.enum.sortType.name": "Name",
+  "text.config.inventorytweak-config.enum.sortType.rarity": "Rarity",
 
   "text.config.inventorytweak-config.section.durabilityWarningSection": "Durability Warning Section",
   "text.config.inventorytweak-config.option.activateDurabilityWarning": "Activate Durability Warning",

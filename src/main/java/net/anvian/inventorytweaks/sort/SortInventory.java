@@ -1,7 +1,6 @@
 package net.anvian.inventorytweaks.sort;
 
 import net.anvian.inventorytweaks.InventoryTweak;
-import net.anvian.inventorytweaks.config.ModConfig;
 import net.anvian.inventorytweaks.handler.Interaction;
 import net.anvian.inventorytweaks.slots.ContainerSlots;
 import net.anvian.inventorytweaks.slots.InventorySlots;
@@ -63,20 +62,24 @@ public class SortInventory {
     }
 
     private static List<Integer> getSortedSlots(InventorySlots inventorySlots, ScreenHandler screenHandler) {
-        if (InventoryTweak.CONFIG.sortType() == ModConfig.SortType.NAME) {
-            return inventorySlots.stream()
+        return switch (InventoryTweak.CONFIG.sortType()) {
+            case NAME -> inventorySlots.stream()
                     .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
                     .sorted(Comparator.comparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString())
                             .thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder()))
                     .toList();
-        } else {
-            return inventorySlots.stream()
+            case TYPE -> inventorySlots.stream()
                     .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
                     .sorted(Comparator.comparing((Integer slot) -> Item.getRawId(screenHandler.getSlot(slot).getStack().getItem()))
                             .thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder()))
                     .toList();
-        }
-
+            case RARITY -> inventorySlots.stream()
+                    .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
+                    .sorted(Comparator.comparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getRarity()).reversed()
+                            .thenComparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString())
+                            .thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder()))
+                    .toList();
+        };
     }
 
     private static void clearCursor(InventorySlots inventorySlots, ScreenHandler screenHandler) {

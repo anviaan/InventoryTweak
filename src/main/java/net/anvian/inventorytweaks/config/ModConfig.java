@@ -12,9 +12,9 @@ import net.anvian.inventorytweaks.InventoryTweak;
 public class ModConfig {
     @SectionHeader("sortingInventorySection")
     public boolean activateSortingInventory = true;
-    public SortType sortType = SortType.NAME;
+    public SortType sortType = SortType.TYPE;
     public enum SortType {
-        NAME, TYPE
+        TYPE, NAME, RARITY
     }
 
     @SectionHeader("durabilityWarningSection")
