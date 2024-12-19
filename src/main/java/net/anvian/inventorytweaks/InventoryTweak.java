@@ -1,7 +1,7 @@
 package net.anvian.inventorytweaks;
 
 import net.anvian.inventorytweaks.config.InventoryTweakConfig;
-import net.anvian.inventorytweaks.durabilityWarning.DurabilityWarning;
+import net.anvian.inventorytweaks.features.durabilityWarning.DurabilityWarning;
 import net.anvian.inventorytweaks.handler.ModKeyBinding;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;

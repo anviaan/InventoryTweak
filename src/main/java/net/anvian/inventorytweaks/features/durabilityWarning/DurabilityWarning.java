@@ -1,4 +1,4 @@
-package net.anvian.inventorytweaks.durabilityWarning;
+package net.anvian.inventorytweaks.features.durabilityWarning;
 
 import net.anvian.inventorytweaks.InventoryTweak;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;

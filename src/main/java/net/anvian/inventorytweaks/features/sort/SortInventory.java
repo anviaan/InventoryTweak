@@ -1,4 +1,4 @@
-package net.anvian.inventorytweaks.sort;
+package net.anvian.inventorytweaks.features.sort;
 
 import net.anvian.inventorytweaks.InventoryTweak;
 import net.anvian.inventorytweaks.handler.Interaction;

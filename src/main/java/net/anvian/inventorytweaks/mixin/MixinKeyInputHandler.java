@@ -1,7 +1,7 @@
 package net.anvian.inventorytweaks.mixin;
 
 import net.anvian.inventorytweaks.handler.ModKeyBinding;
-import net.anvian.inventorytweaks.sort.SortInventory;
+import net.anvian.inventorytweaks.features.sort.SortInventory;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
