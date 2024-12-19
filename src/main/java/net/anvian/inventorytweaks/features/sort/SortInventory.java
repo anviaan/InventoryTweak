@@ -5,6 +5,7 @@ import net.anvian.inventorytweaks.handler.Interaction;
 import net.anvian.inventorytweaks.slots.ContainerSlots;
 import net.anvian.inventorytweaks.slots.InventorySlots;
 import net.anvian.inventorytweaks.slots.PlayerSlots;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
@@ -13,17 +14,21 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SortInventory {
-    public static void sortPlayerInventory(ScreenHandler screenHandler) {
-        if (cursorCleared(PlayerSlots.get(), screenHandler)) {
-            mergeItemStacks(PlayerSlots.get().excludeOffhand(), screenHandler);
-            sortItemStacks(PlayerSlots.get().excludeOffhand(), screenHandler);
+    public static void sortPlayerInventory(ScreenHandler screenHandler, Screen screen) {
+        if (InventoryTweak.isValidScreen(screen)) {
+            if (cursorCleared(PlayerSlots.get(), screenHandler)) {
+                mergeItemStacks(PlayerSlots.get().excludeOffhand(), screenHandler);
+                sortItemStacks(PlayerSlots.get().excludeOffhand(), screenHandler);
+            }
         }
     }
 
-    public static void sortContainerInventory(ScreenHandler screenHandler) {
-        if (cursorCleared(ContainerSlots.get(), screenHandler)) {
-            mergeItemStacks(ContainerSlots.get(), screenHandler);
-            sortItemStacks(ContainerSlots.get(), screenHandler);
+    public static void sortContainerInventory(ScreenHandler screenHandler, Screen screen) {
+        if (InventoryTweak.isValidScreen(screen)) {
+            if (cursorCleared(ContainerSlots.get(), screenHandler)) {
+                mergeItemStacks(ContainerSlots.get(), screenHandler);
+                sortItemStacks(ContainerSlots.get(), screenHandler);
+            }
         }
     }
 

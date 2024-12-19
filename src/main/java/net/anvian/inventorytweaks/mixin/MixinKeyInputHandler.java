@@ -1,7 +1,7 @@
 package net.anvian.inventorytweaks.mixin;
 
-import net.anvian.inventorytweaks.handler.ModKeyBinding;
 import net.anvian.inventorytweaks.features.sort.SortInventory;
+import net.anvian.inventorytweaks.handler.ModKeyBinding;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
@@ -38,9 +38,9 @@ public class MixinKeyInputHandler {
         Screen screen = MinecraftClient.getInstance().currentScreen;
 
         if (screen instanceof InventoryScreen || screen instanceof CreativeInventoryScreen) {
-            SortInventory.sortPlayerInventory(screenHandler);
+            SortInventory.sortPlayerInventory(screenHandler, screen);
         } else {
-            SortInventory.sortContainerInventory(screenHandler);
+            SortInventory.sortContainerInventory(screenHandler, screen);
         }
     }
 }
