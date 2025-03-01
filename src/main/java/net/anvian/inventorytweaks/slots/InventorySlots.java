@@ -1,8 +1,9 @@
 package net.anvian.inventorytweaks.slots;
 
-import net.anvian.inventorytweaks.InventoryTweak;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
+import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.screen.PlayerScreenHandler;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class InventorySlots extends ArrayList<Integer> {
 
     public InventorySlots excludeOffhand() {
         Screen screen = MinecraftClient.getInstance().currentScreen;
-        if (InventoryTweak.isValidScreen(screen)) {
+        if (screen instanceof InventoryScreen || screen instanceof CreativeInventoryScreen) {
             this.remove(Integer.valueOf(PlayerScreenHandler.OFFHAND_ID));
             return new InventorySlots(this);
         }

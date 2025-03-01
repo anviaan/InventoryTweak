@@ -38,9 +38,9 @@ public class MixinKeyInputHandler {
         Screen screen = MinecraftClient.getInstance().currentScreen;
 
         if (screen instanceof InventoryScreen || screen instanceof CreativeInventoryScreen) {
-            SortInventory.sortPlayerInventory(screenHandler, screen);
+            SortInventory.sortPlayerInventory(screenHandler);
         } else {
-            SortInventory.sortContainerInventory(screenHandler, screen);
+            SortInventory.sortContainerInventory(screenHandler);
         }
     }
 }

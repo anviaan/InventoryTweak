@@ -5,7 +5,6 @@ import net.anvian.inventorytweaks.handler.Interaction;
 import net.anvian.inventorytweaks.slots.ContainerSlots;
 import net.anvian.inventorytweaks.slots.InventorySlots;
 import net.anvian.inventorytweaks.slots.PlayerSlots;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
@@ -14,21 +13,17 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SortInventory {
-    public static void sortPlayerInventory(ScreenHandler screenHandler, Screen screen) {
-        if (InventoryTweak.isValidScreen(screen)) {
-            if (cursorCleared(PlayerSlots.get(), screenHandler)) {
-                mergeItemStacks(PlayerSlots.get().excludeOffhand(), screenHandler);
-                sortItemStacks(PlayerSlots.get().excludeOffhand(), screenHandler);
-            }
+    public static void sortPlayerInventory(ScreenHandler screenHandler) {
+        if (cursorCleared(PlayerSlots.get(), screenHandler)) {
+            mergeItemStacks(PlayerSlots.get().excludeOffhand(), screenHandler);
+            sortItemStacks(PlayerSlots.get().excludeOffhand(), screenHandler);
         }
     }
 
-    public static void sortContainerInventory(ScreenHandler screenHandler, Screen screen) {
-        if (InventoryTweak.isValidScreen(screen)) {
-            if (cursorCleared(ContainerSlots.get(), screenHandler)) {
-                mergeItemStacks(ContainerSlots.get(), screenHandler);
-                sortItemStacks(ContainerSlots.get(), screenHandler);
-            }
+    public static void sortContainerInventory(ScreenHandler screenHandler) {
+        if (cursorCleared(ContainerSlots.get(), screenHandler)) {
+            mergeItemStacks(ContainerSlots.get(), screenHandler);
+            sortItemStacks(ContainerSlots.get(), screenHandler);
         }
     }
 
@@ -44,8 +39,7 @@ public class SortInventory {
             ItemStack stack = screenHandler.getSlot(slot).getStack();
             if (!stack.isEmpty() && stack.getCount() < stack.getMaxCount()) {
                 Interaction.clickStack(slot);
-                for (int tempSlot = slot + 1; Interaction.getCursorStack().getCount() < Interaction.getCursorStack().getMaxCount()
-                        && tempSlot <= inventorySlots.getLastSlot() && !Interaction.getCursorStack().isEmpty(); tempSlot++) {
+                for (int tempSlot = slot + 1; Interaction.getCursorStack().getCount() < Interaction.getCursorStack().getMaxCount() && tempSlot <= inventorySlots.getLastSlot() && !Interaction.getCursorStack().isEmpty(); tempSlot++) {
                     if (ItemStack.areItemsEqual(Interaction.getCursorStack(), screenHandler.getSlot(tempSlot).getStack())) {
                         Interaction.clickStack(tempSlot);
                     }
@@ -68,23 +62,12 @@ public class SortInventory {
 
     private static List<Integer> getSortedSlots(InventorySlots inventorySlots, ScreenHandler screenHandler) {
         return switch (InventoryTweak.CONFIG.sortType()) {
-            case NAME -> inventorySlots.stream()
-                    .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
-                    .sorted(Comparator.comparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString())
-                            .thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder()))
-                    .toList();
-            case TYPE -> inventorySlots.stream()
-                    .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
-                    .sorted(Comparator.comparing((Integer slot) -> Item.getRawId(screenHandler.getSlot(slot).getStack().getItem()))
-                            .thenComparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString())
-                            .thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder()))
-                    .toList();
-            case RARITY -> inventorySlots.stream()
-                    .filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty())
-                    .sorted(Comparator.comparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getRarity()).reversed()
-                            .thenComparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString())
-                            .thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder()))
-                    .toList();
+            case NAME ->
+                    inventorySlots.stream().filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty()).sorted(Comparator.comparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString()).thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder())).toList();
+            case TYPE ->
+                    inventorySlots.stream().filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty()).sorted(Comparator.comparing((Integer slot) -> Item.getRawId(screenHandler.getSlot(slot).getStack().getItem())).thenComparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString()).thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder())).toList();
+            case RARITY ->
+                    inventorySlots.stream().filter(slot -> !screenHandler.getSlot(slot).getStack().isEmpty()).sorted(Comparator.comparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getRarity()).reversed().thenComparing((Integer slot) -> screenHandler.getSlot(slot).getStack().getName().getString()).thenComparing(slot -> screenHandler.getSlot(slot).getStack().getCount(), Comparator.reverseOrder())).toList();
         };
     }
 

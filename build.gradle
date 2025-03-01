@@ -27,6 +27,10 @@ repositories {
     maven {
         url = uri("https://maven.wispforest.io/releases")
     }
+    maven {
+        name = 'Repsy Anvian'
+        url = 'https://repo.repsy.io/mvn/anvian/anvians-lib'
+    }
 }
 
 dependencies {
@@ -41,6 +45,7 @@ dependencies {
     annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
     include "io.wispforest:owo-sentinel:${project.owo_version}"
 
+    modImplementation "net.anvian.anvianslib:anvianslib-fabric-1.21:${project.anvianslib_version}"
 }
 
 processResources {

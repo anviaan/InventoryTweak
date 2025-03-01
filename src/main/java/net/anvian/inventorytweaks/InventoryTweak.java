@@ -1,14 +1,13 @@
 package net.anvian.inventorytweaks;
 
+import net.anvian.anvianslib.config.TelemetryConfigManager;
+import net.anvian.anvianslib.util.LibUtil;
 import net.anvian.inventorytweaks.config.InventoryTweakConfig;
 import net.anvian.inventorytweaks.features.durabilityWarning.DurabilityWarning;
 import net.anvian.inventorytweaks.handler.ModKeyBinding;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
-import net.minecraft.client.gui.screen.ingame.InventoryScreen;
-import net.minecraft.item.ItemGroup;
+import net.fabricmc.loader.api.FabricLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,11 +21,21 @@ public class InventoryTweak implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         LOGGER.info("Hello from " + MOD_NAME + "!");
+
+        LibUtil.generateConfigPath(MOD_ID, FabricLoader.getInstance().getConfigDir());
+
+        TelemetryConfigManager.initialize(FabricLoader.getInstance().getConfigDir().resolve(MOD_ID).toFile());
+        if (TelemetryConfigManager.getConfig().enableTelemetry) {
+            TelemetryConfigManager.sendTelemetryData(
+                    MOD_ID,
+                    "3.1",
+                    LibUtil.getMinecraftVersion(),
+                    "Fabric",
+                    !FabricLoader.getInstance().isDevelopmentEnvironment()
+            );
+        }
+
         ModKeyBinding.register();
         ClientTickEvents.START_CLIENT_TICK.register(new DurabilityWarning());
-    }
-
-    public static boolean isValidScreen(Screen screen) {
-        return screen instanceof InventoryScreen || (screen instanceof CreativeInventoryScreen creativeInventoryScreen && creativeInventoryScreen.getSelectedItemGroup().getType() == ItemGroup.Type.INVENTORY);
     }
 }

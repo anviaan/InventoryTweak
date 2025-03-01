@@ -8,11 +8,12 @@ import net.anvian.inventorytweaks.InventoryTweak;
 
 @SuppressWarnings("unused")
 @Modmenu(modId = InventoryTweak.MOD_ID)
-@Config(name = InventoryTweak.MOD_ID + "-config", wrapperName = "InventoryTweakConfig")
+@Config(name = InventoryTweak.MOD_ID + "/" + InventoryTweak.MOD_ID + "-config", wrapperName = "InventoryTweakConfig")
 public class ModConfig {
     @SectionHeader("sortingInventorySection")
     public boolean activateSortingInventory = true;
     public SortType sortType = SortType.TYPE;
+
     public enum SortType {
         TYPE, NAME, RARITY
     }
