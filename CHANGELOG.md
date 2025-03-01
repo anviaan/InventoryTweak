@@ -1,2 +1,2 @@
-- Update zh_tw.json
-- Fixing error #8 
+- Fixing error #9
+- Anvian's Lib is now a dependency

@@ -28,7 +28,7 @@ public class InventoryTweak implements ClientModInitializer {
         if (TelemetryConfigManager.getConfig().enableTelemetry) {
             TelemetryConfigManager.sendTelemetryData(
                     MOD_ID,
-                    "3.1",
+                    "3.2",
                     LibUtil.getMinecraftVersion(),
                     "Fabric",
                     !FabricLoader.getInstance().isDevelopmentEnvironment()

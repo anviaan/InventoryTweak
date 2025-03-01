@@ -7,6 +7,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.screen.ScreenHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -37,7 +38,14 @@ public class MixinKeyInputHandler {
         ScreenHandler screenHandler = MinecraftClient.getInstance().player.currentScreenHandler;
         Screen screen = MinecraftClient.getInstance().currentScreen;
 
-        if (screen instanceof InventoryScreen || screen instanceof CreativeInventoryScreen) {
+//        Only for debugging
+//        System.out.println(screen.getClass().getName());
+
+        if (screen instanceof InventoryScreen) {
+            SortInventory.sortPlayerInventory(screenHandler);
+        } else if (screen instanceof CreativeInventoryScreen creativeInventoryScreen) {
+            ItemGroup.Type type = creativeInventoryScreen.getSelectedItemGroup().getType();
+            if (type == ItemGroup.Type.CATEGORY || type == ItemGroup.Type.SEARCH) return;
             SortInventory.sortPlayerInventory(screenHandler);
         } else {
             SortInventory.sortContainerInventory(screenHandler);
