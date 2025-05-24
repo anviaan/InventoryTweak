@@ -2,19 +2,19 @@
     "key.inventorytweak.inventorytweak": "Inventory Tweak《物品欄調整》",
     "key.inventorytweak.sort_inventory_key": "物品欄排序鍵",
     
-    "text.config.inventorytweak-config.title": "Inventory Tweak《物品欄調整》設定畫面",
+    "text.config.inventorytweak/inventorytweak-config.title": "Inventory Tweak《物品欄調整》設定畫面",
     
-    "text.config.inventorytweak-config.section.sortingInventorySection": "物品欄排序區",
-    "text.config.inventorytweak-config.option.activateSortingInventory": "啟用物品欄排序",
-    "text.config.inventorytweak-config.option.sortType": "排序類型",
-    "text.config.inventorytweak-config.enum.sortType.type": "類型",
-    "text.config.inventorytweak-config.enum.sortType.name": "名稱",
-    "text.config.inventorytweak-config.enum.sortType.rarity": "稀有度",
+    "text.config.inventorytweak/inventorytweak-config.section.sortingInventorySection": "物品欄排序區",
+    "text.config.inventorytweak/inventorytweak-config.option.activateSortingInventory": "啟用物品欄排序",
+    "text.config.inventorytweak/inventorytweak-config.option.sortType": "排序類型",
+    "text.config.inventorytweak/inventorytweak-config.enum.sortType.type": "類型",
+    "text.config.inventorytweak/inventorytweak-config.enum.sortType.name": "名稱",
+    "text.config.inventorytweak/inventorytweak-config.enum.sortType.rarity": "稀有度",
     
-    "text.config.inventorytweak-config.section.durabilityWarningSection": "耐久度警告區",
-    "text.config.inventorytweak-config.option.activateDurabilityWarning": "啟用耐久度警告",
-    "text.config.inventorytweak-config.option.percentageDurabilityWarning": "耐久度警告百分比",
-    "text.config.inventorytweak-config.option.activateDurabilityWarningSound": "啟用耐久度警告音效",
-    "text.config.inventorytweak-config.option.durabilityWarningSoundVolume": "耐久度警告音效音量",
+    "text.config.inventorytweak/inventorytweak-config.section.durabilityWarningSection": "耐久度警告區",
+    "text.config.inventorytweak/inventorytweak-config.option.activateDurabilityWarning": "啟用耐久度警告",
+    "text.config.inventorytweak/inventorytweak-config.option.percentageDurabilityWarning": "耐久度警告百分比",
+    "text.config.inventorytweak/inventorytweak-config.option.activateDurabilityWarningSound": "啟用耐久度警告音效",
+    "text.config.inventorytweak/inventorytweak-config.option.durabilityWarningSoundVolume": "耐久度警告音效音量",
     "inventorytweak.durabilityWarningMessage": "耐久度過低"
     }

@@ -2,19 +2,19 @@
   "key.inventorytweak.inventorytweak": "Inventory Tweak",
   "key.inventorytweak.sort_inventory_key": "Envanter Sıralayıcı Tuş",
 
-  "text.config.inventorytweak-config.title": "Inventory Tweak Ayar Ekranı",
+  "text.config.inventorytweak/inventorytweak-config.title": "Inventory Tweak Ayar Ekranı",
 
-  "text.config.inventorytweak-config.section.sortingInventorySection": "Envanter Sıralama Bölümü",
-  "text.config.inventorytweak-config.option.activateSortingInventory": "Envanter Sıralamayı Aç",
-  "text.config.inventorytweak-config.option.sortType": "Sıralama Türü",
-  "text.config.inventorytweak-config.enum.sortType.type": "Tür",
-  "text.config.inventorytweak-config.enum.sortType.name": "İsim",
-  "text.config.inventorytweak-config.enum.sortType.rarity": "Nadirlik",
+  "text.config.inventorytweak/inventorytweak-config.section.sortingInventorySection": "Envanter Sıralama Bölümü",
+  "text.config.inventorytweak/inventorytweak-config.option.activateSortingInventory": "Envanter Sıralamayı Aç",
+  "text.config.inventorytweak/inventorytweak-config.option.sortType": "Sıralama Türü",
+  "text.config.inventorytweak/inventorytweak-config.enum.sortType.type": "Tür",
+  "text.config.inventorytweak/inventorytweak-config.enum.sortType.name": "İsim",
+  "text.config.inventorytweak/inventorytweak-config.enum.sortType.rarity": "Nadirlik",
 
-  "text.config.inventorytweak-config.section.durabilityWarningSection": "Dayanıklılık Uyarısı Bölümü",
-  "text.config.inventorytweak-config.option.activateDurabilityWarning": "Dayanıklılık Uyarısını Aç",
-  "text.config.inventorytweak-config.option.percentageDurabilityWarning": "Dayanıklılık Uyarısı Yüzdesi",
-  "text.config.inventorytweak-config.option.activateDurabilityWarningSound": "Dayanıklılık Uyarısı Sesini Aç",
-  "text.config.inventorytweak-config.option.durabilityWarningSoundVolume": "Dayanıklılık Uyarısı Ses Düzeyi",
+  "text.config.inventorytweak/inventorytweak-config.section.durabilityWarningSection": "Dayanıklılık Uyarısı Bölümü",
+  "text.config.inventorytweak/inventorytweak-config.option.activateDurabilityWarning": "Dayanıklılık Uyarısını Aç",
+  "text.config.inventorytweak/inventorytweak-config.option.percentageDurabilityWarning": "Dayanıklılık Uyarısı Yüzdesi",
+  "text.config.inventorytweak/inventorytweak-config.option.activateDurabilityWarningSound": "Dayanıklılık Uyarısı Sesini Aç",
+  "text.config.inventorytweak/inventorytweak-config.option.durabilityWarningSoundVolume": "Dayanıklılık Uyarısı Ses Düzeyi",
   "inventorytweak.durabilityWarningMessage": "Düşük dayanıklılık"
 }

@@ -1,6 +1,5 @@
 package net.anvian.inventorytweaks;
 
-import net.anvian.anvianslib.config.TelemetryConfigManager;
 import net.anvian.anvianslib.util.LibUtil;
 import net.anvian.inventorytweaks.config.InventoryTweakConfig;
 import net.anvian.inventorytweaks.features.durabilityWarning.DurabilityWarning;
@@ -14,6 +13,7 @@ import org.slf4j.LoggerFactory;
 public class InventoryTweak implements ClientModInitializer {
     public static final String MOD_ID = "inventorytweak";
     public static final String MOD_NAME = "Inventory Tweak";
+    public static final String MOD_VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion().getFriendlyString();
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public static final InventoryTweakConfig CONFIG = InventoryTweakConfig.createAndLoad();
@@ -22,18 +22,7 @@ public class InventoryTweak implements ClientModInitializer {
     public void onInitializeClient() {
         LOGGER.info("Hello from " + MOD_NAME + "!");
 
-        LibUtil.generateConfigPath(MOD_ID, FabricLoader.getInstance().getConfigDir());
-
-        TelemetryConfigManager.initialize(FabricLoader.getInstance().getConfigDir().resolve(MOD_ID).toFile());
-        if (TelemetryConfigManager.getConfig().enableTelemetry) {
-            TelemetryConfigManager.sendTelemetryData(
-                    MOD_ID,
-                    "3.2",
-                    LibUtil.getMinecraftVersion(),
-                    "Fabric",
-                    !FabricLoader.getInstance().isDevelopmentEnvironment()
-            );
-        }
+        LibUtil.setupTelemetry(MOD_ID, MOD_VERSION);
 
         ModKeyBinding.register();
         ClientTickEvents.START_CLIENT_TICK.register(new DurabilityWarning());

@@ -1,2 +1,3 @@
-- Fixing error #9
-- Anvian's Lib is now a dependency
+- Add Turkish Translation by @Hexasan
+- Fixing lang
+- Support for Minecraft 1.21.5
