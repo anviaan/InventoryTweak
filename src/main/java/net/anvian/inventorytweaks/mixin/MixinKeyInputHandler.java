@@ -3,10 +3,12 @@ package net.anvian.inventorytweaks.mixin;
 import net.anvian.inventorytweaks.features.sort.SortInventory;
 import net.anvian.inventorytweaks.handler.ModKeyBinding;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
+import net.minecraft.client.input.KeyInput;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.screen.ScreenHandler;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,16 +19,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(HandledScreen.class)
 public class MixinKeyInputHandler {
+
+
     @Inject(method = "keyPressed", at = @At("HEAD"))
-    private void onKeyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
-        if (ModKeyBinding.keyBinding.matchesKey(keyCode, scanCode)) {
+    private void onKeyPressed(KeyInput input, CallbackInfoReturnable<Boolean> cir) {
+        if (ModKeyBinding.keyBinding.matchesKey(input)) {
             inventoryTweakSortingKeyPressed();
         }
     }
 
     @Inject(method = "mouseClicked", at = @At("HEAD"))
-    private void onMouseClicked(double mouseX, double mouseY, int button, CallbackInfoReturnable<Boolean> cir) {
-        if (ModKeyBinding.keyBinding.matchesMouse(button)) {
+    private void onMouseClicked(Click click, boolean doubled, CallbackInfoReturnable<Boolean> cir) {
+        if (ModKeyBinding.keyBinding.matchesMouse(click)) {
             inventoryTweakSortingKeyPressed();
         }
     }

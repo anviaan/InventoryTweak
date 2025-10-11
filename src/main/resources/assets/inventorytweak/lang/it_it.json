@@ -1,5 +1,5 @@
 {
-    "key.inventorytweak.inventorytweak": "Modifica dell'inventario",
+    "key.category.inventorytweak.inventorytweak": "Modifica dell'inventario",
     "key.inventorytweak.sort_inventory_key": "Chiave di selezione dell'inventario",
     "text.config.inventorytweak/inventorytweak-config.title": "Schermata di configurazione delle modifiche all'inventario",
     "text.config.inventorytweak/inventorytweak-config.section.sortingInventorySection": "Sezione inventario ordinamento",

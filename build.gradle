@@ -1,8 +1,8 @@
 plugins {
-    id 'fabric-loom' version '1.10-SNAPSHOT'
+    id 'fabric-loom' version '1.11-SNAPSHOT'
 }
 
-def COMPATIBLE_VERSIONS = ['1.21', '1.22']
+def COMPATIBLE_VERSIONS = ['1.21.9', '1.22']
 
 tasks.register("printEnv") {
     doLast {
@@ -45,7 +45,7 @@ dependencies {
     annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
     include "io.wispforest:owo-sentinel:${project.owo_version}"
 
-    modImplementation "net.anvian.anvianslib:anvianslib-fabric-1.21:${project.anvianslib_version}"
+    modImplementation "net.anvian.anvianslib:anvianslib-fabric-1.21.10:${project.anvianslib_version}"
 }
 
 processResources {

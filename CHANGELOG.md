@@ -1,3 +1,1 @@
-- Add Turkish Translation by @Hexasan
-- Fixing lang
-- Support for Minecraft 1.21.5
+- Port to 1.21.9/10
