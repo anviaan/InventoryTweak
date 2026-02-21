@@ -4,7 +4,6 @@ import net.anvian.inventorytweaks.InventoryTweak;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -25,7 +24,7 @@ public class DurabilityWarning implements ClientTickEvents.StartTick {
                     if (durabilityPercentage <= InventoryTweak.CONFIG.percentageDurabilityWarning()) {
                         if (InventoryTweak.CONFIG.activateDurabilityWarningSound() && !soundPlayed) {
                             float volume = (float) InventoryTweak.CONFIG.durabilityWarningSoundVolume() / 100.0F;
-                            client.player.playSoundToPlayer(SoundEvents.ENTITY_IRON_GOLEM_REPAIR, SoundCategory.PLAYERS, volume, 3.0F);
+                            client.player.playSound(SoundEvents.ENTITY_IRON_GOLEM_REPAIR, volume, 3.0F);
                             soundPlayed = true;
                         }
 
