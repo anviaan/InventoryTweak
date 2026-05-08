@@ -3,6 +3,8 @@ plugins {
 	id 'maven-publish'
 }
 
+def COMPATIBLE_VERSIONS = '[26.1, 26.2)'
+
 tasks.register("printEnv") {
 	doLast {
 		def envFile = new File(System.getenv("GITHUB_ENV"))
