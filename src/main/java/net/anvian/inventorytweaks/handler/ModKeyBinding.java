@@ -1,21 +1,21 @@
 package net.anvian.inventorytweaks.handler;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.anvian.inventorytweaks.InventoryTweak;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.util.InputUtil;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
+import net.minecraft.client.KeyMapping;
+import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 public class ModKeyBinding {
-    public static KeyBinding keyBinding;
+    public static KeyMapping keyBinding;
 
     public static void register() {
-        keyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+        keyBinding = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 "key.inventorytweak.sort_inventory_key",
-                InputUtil.Type.KEYSYM,
+                InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_B,
-                KeyBinding.Category.create(Identifier.tryParse(InventoryTweak.MOD_ID, "inventorytweak"))
+                KeyMapping.Category.register(Identifier.fromNamespaceAndPath(InventoryTweak.MOD_ID, "inventorytweak"))
         ));
     }
 }

@@ -1,16 +1,16 @@
 package net.anvian.inventorytweaks.handler;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.client.network.ClientPlayerInteractionManager;
-import net.minecraft.item.ItemStack;
-import net.minecraft.screen.slot.SlotActionType;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.MultiPlayerGameMode;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.inventory.ContainerInput;
+import net.minecraft.world.item.ItemStack;
 
 public class Interaction {
     private static final int LEFT_CLICK = 0;
 
     public static ItemStack getCursorStack() {
-        return MinecraftClient.getInstance().player.currentScreenHandler.getCursorStack();
+        return Minecraft.getInstance().player.containerMenu.getCarried();
     }
 
     public static boolean hasEmptyCursor() {
@@ -18,22 +18,22 @@ public class Interaction {
     }
 
     public static void clickStack(int slot) {
-        ClientPlayerInteractionManager manager = MinecraftClient.getInstance().interactionManager;
-        ClientPlayerEntity player = MinecraftClient.getInstance().player;
-        manager.clickSlot(getSyncId(), slot, LEFT_CLICK, SlotActionType.PICKUP, player);
+        MultiPlayerGameMode gameMode = Minecraft.getInstance().gameMode;
+        LocalPlayer player = Minecraft.getInstance().player;
+        gameMode.handleContainerInput(getSyncId(), slot, LEFT_CLICK, ContainerInput.PICKUP, player);
     }
 
     public static void swapStacks(int slot, int target) {
-        ClientPlayerInteractionManager manager = MinecraftClient.getInstance().interactionManager;
-        ClientPlayerEntity player = MinecraftClient.getInstance().player;
-        manager.clickSlot(getSyncId(), slot, LEFT_CLICK, SlotActionType.PICKUP, player);
-        manager.clickSlot(getSyncId(), target, LEFT_CLICK, SlotActionType.PICKUP, player);
+        MultiPlayerGameMode gameMode = Minecraft.getInstance().gameMode;
+        LocalPlayer player = Minecraft.getInstance().player;
+        gameMode.handleContainerInput(getSyncId(), slot, LEFT_CLICK, ContainerInput.PICKUP, player);
+        gameMode.handleContainerInput(getSyncId(), target, LEFT_CLICK, ContainerInput.PICKUP, player);
         if (!Interaction.hasEmptyCursor()) {
-            manager.clickSlot(getSyncId(), slot, LEFT_CLICK, SlotActionType.PICKUP, player);
+            gameMode.handleContainerInput(getSyncId(), slot, LEFT_CLICK, ContainerInput.PICKUP, player);
         }
     }
 
     private static int getSyncId() {
-        return MinecraftClient.getInstance().player.currentScreenHandler.syncId;
+        return Minecraft.getInstance().player.containerMenu.containerId;
     }
 }

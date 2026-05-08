@@ -2,34 +2,33 @@ package net.anvian.inventorytweaks.mixin;
 
 import net.anvian.inventorytweaks.features.sort.SortInventory;
 import net.anvian.inventorytweaks.handler.ModKeyBinding;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.Click;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.gui.screen.ingame.InventoryScreen;
-import net.minecraft.client.input.KeyInput;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.screen.ScreenHandler;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
+import net.minecraft.client.input.KeyEvent;
+import net.minecraft.client.input.MouseButtonEvent;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(HandledScreen.class)
+@Mixin(AbstractContainerScreen.class)
 public class MixinKeyInputHandler {
 
 
     @Inject(method = "keyPressed", at = @At("HEAD"))
-    private void onKeyPressed(KeyInput input, CallbackInfoReturnable<Boolean> cir) {
-        if (ModKeyBinding.keyBinding.matchesKey(input)) {
+    private void onKeyPressed(KeyEvent input, CallbackInfoReturnable<Boolean> cir) {
+        if (ModKeyBinding.keyBinding.matches(input)) {
             inventoryTweakSortingKeyPressed();
         }
     }
 
     @Inject(method = "mouseClicked", at = @At("HEAD"))
-    private void onMouseClicked(Click click, boolean doubled, CallbackInfoReturnable<Boolean> cir) {
+    private void onMouseClicked(MouseButtonEvent click, boolean doubled, CallbackInfoReturnable<Boolean> cir) {
         if (ModKeyBinding.keyBinding.matchesMouse(click)) {
             inventoryTweakSortingKeyPressed();
         }
@@ -37,19 +36,17 @@ public class MixinKeyInputHandler {
 
     @Unique
     private void inventoryTweakSortingKeyPressed() {
-        if (MinecraftClient.getInstance().player == null) return;
+        if (Minecraft.getInstance().player == null) return;
 
-        ScreenHandler screenHandler = MinecraftClient.getInstance().player.currentScreenHandler;
-        Screen screen = MinecraftClient.getInstance().currentScreen;
+        AbstractContainerMenu screenHandler = Minecraft.getInstance().player.containerMenu;
+        Screen screen = Minecraft.getInstance().screen;
 
 //        Only for debugging
 //        System.out.println(screen.getClass().getName());
 
         if (screen instanceof InventoryScreen) {
             SortInventory.sortPlayerInventory(screenHandler);
-        } else if (screen instanceof CreativeInventoryScreen creativeInventoryScreen) {
-            ItemGroup.Type type = creativeInventoryScreen.getSelectedItemGroup().getType();
-            if (type == ItemGroup.Type.CATEGORY || type == ItemGroup.Type.SEARCH) return;
+        } else if (screen instanceof CreativeModeInventoryScreen) {
             SortInventory.sortPlayerInventory(screenHandler);
         } else {
             SortInventory.sortContainerInventory(screenHandler);

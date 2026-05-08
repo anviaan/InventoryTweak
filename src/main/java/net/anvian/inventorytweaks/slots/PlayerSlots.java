@@ -1,23 +1,23 @@
 package net.anvian.inventorytweaks.slots;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
-import net.minecraft.client.gui.screen.ingame.InventoryScreen;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.PlayerScreenHandler;
-import net.minecraft.screen.ScreenHandler;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.InventoryMenu;
 
 public class PlayerSlots {
     public static InventorySlots get() {
         int from, to;
-        if (MinecraftClient.getInstance().currentScreen instanceof InventoryScreen || MinecraftClient.getInstance().currentScreen instanceof CreativeInventoryScreen) {
-            from = PlayerScreenHandler.INVENTORY_START;
-            to = PlayerScreenHandler.INVENTORY_END;
-            return new InventorySlots(from, to, PlayerScreenHandler.OFFHAND_ID);
+        if (Minecraft.getInstance().screen instanceof InventoryScreen || Minecraft.getInstance().screen instanceof CreativeModeInventoryScreen) {
+            from = InventoryMenu.INV_SLOT_START;
+            to = InventoryMenu.INV_SLOT_END;
+            return new InventorySlots(from, to, InventoryMenu.SHIELD_SLOT);
         } else {
-            ScreenHandler screenHandler = MinecraftClient.getInstance().player.currentScreenHandler;
-            from = screenHandler.slots.size() - PlayerInventory.MAIN_SIZE;
-            to = screenHandler.slots.size() - PlayerInventory.getHotbarSize();
+            AbstractContainerMenu screenHandler = Minecraft.getInstance().player.containerMenu;
+            from = screenHandler.slots.size() - Inventory.INVENTORY_SIZE;
+            to = screenHandler.slots.size() - Inventory.getSelectionSize();
             return new InventorySlots(from, to);
         }
     }

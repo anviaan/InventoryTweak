@@ -1,10 +1,10 @@
 package net.anvian.inventorytweaks.slots;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
-import net.minecraft.client.gui.screen.ingame.InventoryScreen;
-import net.minecraft.screen.PlayerScreenHandler;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
+import net.minecraft.world.inventory.InventoryMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +29,9 @@ public class InventorySlots extends ArrayList<Integer> {
     }
 
     public InventorySlots excludeOffhand() {
-        Screen screen = MinecraftClient.getInstance().currentScreen;
-        if (screen instanceof InventoryScreen || screen instanceof CreativeInventoryScreen) {
-            this.remove(Integer.valueOf(PlayerScreenHandler.OFFHAND_ID));
+        Screen screen = Minecraft.getInstance().screen;
+        if (screen instanceof InventoryScreen || screen instanceof CreativeModeInventoryScreen) {
+            this.remove(Integer.valueOf(InventoryMenu.SHIELD_SLOT));
             return new InventorySlots(this);
         }
         return this;
