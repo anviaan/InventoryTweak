@@ -10,7 +10,7 @@ import net.minecraft.world.inventory.InventoryMenu;
 public class PlayerSlots {
     public static InventorySlots get() {
         int from, to;
-        if (Minecraft.getInstance().screen instanceof InventoryScreen || Minecraft.getInstance().screen instanceof CreativeModeInventoryScreen) {
+        if (Minecraft.getInstance().gui.screen() instanceof InventoryScreen || Minecraft.getInstance().gui.screen() instanceof CreativeModeInventoryScreen) {
             from = InventoryMenu.INV_SLOT_START;
             to = InventoryMenu.INV_SLOT_END;
             return new InventorySlots(from, to, InventoryMenu.SHIELD_SLOT);

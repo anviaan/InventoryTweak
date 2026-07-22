@@ -61,7 +61,7 @@ public class SortInventory {
     }
 
     private static List<Integer> getSortedSlots(InventorySlots inventorySlots, AbstractContainerMenu screenHandler) {
-        return switch (InventoryTweak.CONFIG.sortType()) {
+        return switch (InventoryTweak.CONFIG.sortType) {
             case NAME ->
                     inventorySlots.stream().filter(slot -> !screenHandler.getSlot(slot).getItem().isEmpty()).sorted(Comparator.comparing((Integer slot) -> screenHandler.getSlot(slot).getItem().getDisplayName().getString()).thenComparing(slot -> screenHandler.getSlot(slot).getItem().getCount(), Comparator.reverseOrder())).toList();
             case TYPE ->

@@ -21,15 +21,15 @@ public class MixinKeyInputHandler {
 
 
     @Inject(method = "keyPressed", at = @At("HEAD"))
-    private void onKeyPressed(KeyEvent input, CallbackInfoReturnable<Boolean> cir) {
-        if (ModKeyBinding.keyBinding.matches(input)) {
+    private void onKeyPressed(KeyEvent event, CallbackInfoReturnable<Boolean> cir) {
+        if (ModKeyBinding.keyBinding.matches(event)) {
             inventoryTweakSortingKeyPressed();
         }
     }
 
     @Inject(method = "mouseClicked", at = @At("HEAD"))
-    private void onMouseClicked(MouseButtonEvent click, boolean doubled, CallbackInfoReturnable<Boolean> cir) {
-        if (ModKeyBinding.keyBinding.matchesMouse(click)) {
+    private void onMouseClicked(MouseButtonEvent event, boolean doubleClick, CallbackInfoReturnable<Boolean> cir) {
+        if (ModKeyBinding.keyBinding.matchesMouse(event)) {
             inventoryTweakSortingKeyPressed();
         }
     }
@@ -39,7 +39,7 @@ public class MixinKeyInputHandler {
         if (Minecraft.getInstance().player == null) return;
 
         AbstractContainerMenu screenHandler = Minecraft.getInstance().player.containerMenu;
-        Screen screen = Minecraft.getInstance().screen;
+        Screen screen = Minecraft.getInstance().gui.screen();
 
 //        Only for debugging
 //        System.out.println(screen.getClass().getName());

@@ -1,20 +1,17 @@
 {
-  "key.category.inventorytweak.inventorytweak": "Inventory Tweak",
-  "key.inventorytweak.sort_inventory_key": "Envanter Sıralayıcı Tuş",
-
-  "text.config.inventorytweak/inventorytweak-config.title": "Inventory Tweak Ayar Ekranı",
-
-  "text.config.inventorytweak/inventorytweak-config.section.sortingInventorySection": "Envanter Sıralama Bölümü",
-  "text.config.inventorytweak/inventorytweak-config.option.activateSortingInventory": "Envanter Sıralamayı Aç",
-  "text.config.inventorytweak/inventorytweak-config.option.sortType": "Sıralama Türü",
-  "text.config.inventorytweak/inventorytweak-config.enum.sortType.type": "Tür",
-  "text.config.inventorytweak/inventorytweak-config.enum.sortType.name": "İsim",
-  "text.config.inventorytweak/inventorytweak-config.enum.sortType.rarity": "Nadirlik",
-
-  "text.config.inventorytweak/inventorytweak-config.section.durabilityWarningSection": "Dayanıklılık Uyarısı Bölümü",
-  "text.config.inventorytweak/inventorytweak-config.option.activateDurabilityWarning": "Dayanıklılık Uyarısını Aç",
-  "text.config.inventorytweak/inventorytweak-config.option.percentageDurabilityWarning": "Dayanıklılık Uyarısı Yüzdesi",
-  "text.config.inventorytweak/inventorytweak-config.option.activateDurabilityWarningSound": "Dayanıklılık Uyarısı Sesini Aç",
-  "text.config.inventorytweak/inventorytweak-config.option.durabilityWarningSoundVolume": "Dayanıklılık Uyarısı Ses Düzeyi",
-  "inventorytweak.durabilityWarningMessage": "Düşük dayanıklılık"
+  "key.category.inventorytweak.inventorytweak": "Envanter Ayarlaması",
+  "key.inventorytweak.sort_inventory_key": "Envanter Sıralayıcı Anahtarı",
+  "text.autoconfig.inventorytweak.title": "Envanter Ayarları Yapılandırma Ekranı",
+  "text.autoconfig.inventorytweak.category.sortingInventorySection": "Envanter Bölümünü Sıralama",
+  "text.autoconfig.inventorytweak.option.activateSortingInventory": "Envanter Sıralamasını Etkinleştir",
+  "text.autoconfig.inventorytweak.option.sortType": "Sıralama Türü",
+  "text.autoconfig.inventorytweak.enum.sortType.type": "Tür",
+  "text.autoconfig.inventorytweak.enum.sortType.name": "Ad",
+  "text.autoconfig.inventorytweak.enum.sortType.rarity": "Nadirlik",
+  "text.autoconfig.inventorytweak.category.durabilityWarningSection": "Dayanıklılık Uyarısı Bölümü",
+  "text.autoconfig.inventorytweak.option.activateDurabilityWarning": "Dayanıklılık Uyarısını Etkinleştir",
+  "text.autoconfig.inventorytweak.option.percentageDurabilityWarning": "Yüzde Dayanıklılık Uyarısı",
+  "text.autoconfig.inventorytweak.option.activateDurabilityWarningSound": "Dayanıklılık Uyarı Sesini Etkinleştir",
+  "text.autoconfig.inventorytweak.option.durabilityWarningSoundVolume": "Dayanıklılık Uyarısı Ses Seviyesi",
+  "inventorytweak.durabilityWarningMessage": "Dayanıklılık düşük"
 }

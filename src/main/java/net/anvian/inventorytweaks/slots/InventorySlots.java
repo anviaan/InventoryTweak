@@ -29,7 +29,7 @@ public class InventorySlots extends ArrayList<Integer> {
     }
 
     public InventorySlots excludeOffhand() {
-        Screen screen = Minecraft.getInstance().screen;
+        Screen screen = Minecraft.getInstance().gui.screen();
         if (screen instanceof InventoryScreen || screen instanceof CreativeModeInventoryScreen) {
             this.remove(Integer.valueOf(InventoryMenu.SHIELD_SLOT));
             return new InventorySlots(this);

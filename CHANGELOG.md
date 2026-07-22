@@ -1,1 +1,5 @@
-- Port to 1.21.11
+- Updated to Minecraft 26.2
+- Migrated from owo-lib to Cloth Config for configuration
+- Updated Fabric API to 0.155.2+26.2
+- Updated Fabric Loader to 0.19.3
+- Updated ModMenu to 20.0.1

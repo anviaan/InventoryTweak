@@ -26,6 +26,9 @@
   "entrypoints": {
     "client": [
       "net.anvian.inventorytweaks.InventoryTweak"
+    ],
+    "modmenu": [
+      "net.anvian.inventorytweaks.config.ModMenuIntegration"
     ]
   },
   "mixins": [
@@ -33,10 +36,10 @@
   ],
   "depends": {
     "fabricloader": ">=0.16.9",
-    "minecraft": ">=1.21",
+    "minecraft": ">=26.1",
     "java": ">=21",
     "fabric-api": "*",
-    "owo": ">=0.12.15"
+    "cloth-config": "*"
   },
   "suggests": {
     "modmenu": ">=11.0.1"

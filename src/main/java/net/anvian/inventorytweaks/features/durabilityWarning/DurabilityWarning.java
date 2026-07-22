@@ -13,7 +13,7 @@ public class DurabilityWarning implements ClientTickEvents.StartTick {
 
     @Override
     public void onStartTick(Minecraft client) {
-        if (InventoryTweak.CONFIG.activateDurabilityWarning()) {
+        if (InventoryTweak.CONFIG.activateDurabilityWarning) {
             if (client.player != null) {
                 ItemStack itemStack = client.player.getMainHandItem();
 
@@ -21,9 +21,9 @@ public class DurabilityWarning implements ClientTickEvents.StartTick {
                     int durability = itemStack.getMaxDamage() - itemStack.getDamageValue();
                     float durabilityPercentage = ((float) durability / itemStack.getMaxDamage()) * 100;
 
-                    if (durabilityPercentage <= InventoryTweak.CONFIG.percentageDurabilityWarning()) {
-                        if (InventoryTweak.CONFIG.activateDurabilityWarningSound() && !soundPlayed) {
-                            float volume = (float) InventoryTweak.CONFIG.durabilityWarningSoundVolume() / 100.0F;
+                    if (durabilityPercentage <= InventoryTweak.CONFIG.percentageDurabilityWarning) {
+                        if (InventoryTweak.CONFIG.activateDurabilityWarningSound && !soundPlayed) {
+                            float volume = (float) InventoryTweak.CONFIG.durabilityWarningSoundVolume / 100.0F;
                             client.player.playSound(SoundEvents.IRON_GOLEM_REPAIR, volume, 3.0F);
                             soundPlayed = true;
                         }

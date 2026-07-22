@@ -1,7 +1,9 @@
 package net.anvian.inventorytweaks;
 
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.anvian.anvianslib.util.LibUtil;
-import net.anvian.inventorytweaks.config.InventoryTweakConfig;
+import net.anvian.inventorytweaks.config.ModConfig;
 import net.anvian.inventorytweaks.features.durabilityWarning.DurabilityWarning;
 import net.anvian.inventorytweaks.handler.ModKeyBinding;
 import net.fabricmc.api.ClientModInitializer;
@@ -16,11 +18,14 @@ public class InventoryTweak implements ClientModInitializer {
     public static final String MOD_VERSION = FabricLoader.getInstance().getModContainer(MOD_ID).get().getMetadata().getVersion().getFriendlyString();
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-    public static final InventoryTweakConfig CONFIG = InventoryTweakConfig.createAndLoad();
+    public static ModConfig CONFIG;
 
     @Override
     public void onInitializeClient() {
         LOGGER.info("Hello from " + MOD_NAME + "!");
+
+        AutoConfig.register(ModConfig.class, Toml4jConfigSerializer::new);
+        CONFIG = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 
         LibUtil.setupTelemetry(MOD_ID, MOD_VERSION);
 
