@@ -1,103 +1,50 @@
 plugins {
-	id 'net.fabricmc.fabric-loom' version "${loom_version}"
-	id 'maven-publish'
+    id 'net.fabricmc.fabric-loom' version '1.15.5' apply false
+    id 'net.neoforged.moddev' version '2.0.141' apply false
 }
 
-def COMPATIBLE_VERSIONS = '[26.1, 26.2)'
+group = project.group
+version = project.version
 
-tasks.register("printEnv") {
-	doLast {
-		def envFile = new File(System.getenv("GITHUB_ENV"))
-		envFile.append("MOD_VERSION=${project.mod_version}\n")
-		envFile.append("RELEASE_NAME=${project.archives_base_name}-${project.mod_version}\n")
-		envFile.append("GAME_VERSIONS=${COMPATIBLE_VERSIONS}\n")
-	}
-}
-
-version = project.mod_version
-group = project.maven_group
-
-
-repositories {
-    mavenCentral()
-    maven {
-        url = "https://jitpack.io"
-    }
-    maven {
-        url = "https://maven.terraformersmc.com/"
-    }
-    maven {
-        url = uri("https://maven.wispforest.io/releases")
-    }
-    maven {
-        name = 'Repsy Anvian'
-        url = 'https://maven.anvian.net/releases'
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            name = 'Shedaniel'
+            url = uri('https://maven.shedaniel.me/')
+            mavenContent { includeGroup 'me.shedaniel.cloth' }
+        }
+        maven {
+            name = 'TerraformersMC'
+            url = uri('https://maven.terraformersmc.com/')
+            mavenContent { includeGroup 'com.terraformersmc' }
+        }
+        maven {
+            name = 'Modrinth'
+            url = uri('https://api.modrinth.com/maven')
+            mavenContent { includeGroup 'maven.modrinth' }
+        }
+        maven {
+            name = 'Repsy Anvian'
+            url = uri('https://maven.anvian.net/releases')
+            mavenContent { includeGroup 'net.anvian.anvianslib' }
+        }
     }
 }
 
-dependencies {
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	
-	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
-
-	localRuntime("com.terraformersmc:modmenu:${project.modmenu_version}")
-
-	annotationProcessor implementation("io.wispforest:owo-lib:${project.owo_version}")
-	include "io.wispforest:owo-sentinel:${project.owo_version}"
-
-	implementation "net.anvian.anvianslib:anvianslib-fabric-26.1:${project.anvianslib_version}"
-}
-
-processResources {
-	def version = project.version
-	inputs.property "version", version
-
-	filesMatching("fabric.mod.json") {
-		expand "version": version
-	}
-}
-
-tasks.withType(JavaCompile).configureEach {
-	it.options.release = 25
-}
-
-java {
-	withSourcesJar()
-
-	sourceCompatibility = JavaVersion.VERSION_25
-	targetCompatibility = JavaVersion.VERSION_25
-}
-
-jar {
-	def projectName = project.name
-	inputs.property "projectName", projectName
-
-	from("LICENSE") {
-		rename { "${it}_$projectName"}
-	}
-}
-
-publishing {
-	publications {
-		create("mavenJava", MavenPublication) {
-			from components.java
-		}
-	}
-
-	repositories {
-		maven {
-			name = "Reposilite"
-			url = uri(
-					version.toString().endsWith("SNAPSHOT")
-							? "https://maven.anvian.net/snapshots"
-							: "https://maven.anvian.net/releases"
-			)
-			credentials {
-				username = project.findProperty("reposilite.user") ?: System.getenv("REPOSILITE_USER")
-				password = project.findProperty("reposilite.token") ?: System.getenv("REPOSILITE_TOKEN")
-			}
-		}
-	}
+tasks.register('printEnv') {
+    doLast {
+        def values = [
+                MOD_VERSION  : project.version.toString(),
+                RELEASE_NAME : "${mod_id}-${project.version}",
+                GAME_VERSIONS: minecraft_version_range.toString()
+        ]
+        values.each { key, value ->
+            println "${key}=${value}"
+            def githubEnv = System.getenv('GITHUB_ENV')
+            if (githubEnv != null) {
+                new File(githubEnv).append("${key}=${value}\n")
+            }
+        }
+    }
 }

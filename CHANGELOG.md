@@ -1,1 +1,3 @@
-- Port to 1.21.11
+- Add Fabric and NeoForge support for Minecraft 26.1.
+- Replace owo config with Cloth Config at `config/inventorytweak/inventorytweak.toml`.
+- Existing owo settings are not migrated.
