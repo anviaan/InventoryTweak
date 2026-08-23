@@ -1,0 +1,17 @@
+{
+  "key.category.inventorytweak.inventorytweak": "背包调整",
+  "key.inventorytweak.sort_inventory_key": "背包排序器 键",
+  "text.autoconfig.inventorytweak/inventorytweak.title": "《Inventory Tweak》配置界面",
+  "text.autoconfig.inventorytweak/inventorytweak.category.sortingInventorySection": "整理背包区域",
+  "text.autoconfig.inventorytweak/inventorytweak.option.activateSortingInventory": "启用背包排序",
+  "text.autoconfig.inventorytweak/inventorytweak.option.sortType": "排序类型",
+  "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.type": "类型",
+  "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.name": "名称",
+  "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.rarity": "稀有度",
+  "text.autoconfig.inventorytweak/inventorytweak.category.durabilityWarningSection": "耐久度警告部分",
+  "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarning": "启用耐久度警告",
+  "text.autoconfig.inventorytweak/inventorytweak.option.percentageDurabilityWarning": "耐久度百分比警告",
+  "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarningSound": "启用耐久度警告音效",
+  "text.autoconfig.inventorytweak/inventorytweak.option.durabilityWarningSoundVolume": "耐久度警告音量",
+  "inventorytweak.durabilityWarningMessage": "耐久度较低"
+}

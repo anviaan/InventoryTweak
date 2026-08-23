@@ -1,0 +1,17 @@
+{
+  "key.category.inventorytweak.inventorytweak": "Налаштування інвентарю",
+  "key.inventorytweak.sort_inventory_key": "Ключ сортування інвентарю",
+  "text.autoconfig.inventorytweak/inventorytweak.title": "Екран налаштувань «Inventory Tweak»",
+  "text.autoconfig.inventorytweak/inventorytweak.category.sortingInventorySection": "Розділ «Сортування інвентарю»",
+  "text.autoconfig.inventorytweak/inventorytweak.option.activateSortingInventory": "Увімкнути сортування інвентарю",
+  "text.autoconfig.inventorytweak/inventorytweak.option.sortType": "Тип сортування",
+  "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.type": "Тип",
+  "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.name": "Назва",
+  "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.rarity": "Рідкість",
+  "text.autoconfig.inventorytweak/inventorytweak.category.durabilityWarningSection": "Розділ попередження про зносостійкість",
+  "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarning": "Увімкнути попередження про зношуваність",
+  "text.autoconfig.inventorytweak/inventorytweak.option.percentageDurabilityWarning": "Попередження про відсоток зносу",
+  "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarningSound": "Увімкнути звукове попередження про зношуваність",
+  "text.autoconfig.inventorytweak/inventorytweak.option.durabilityWarningSoundVolume": "Гучність звукового сигналу про зношуваність",
+  "inventorytweak.durabilityWarningMessage": "Низька міцність"
+}

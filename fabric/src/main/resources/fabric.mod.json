@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/inventorytweak",
+    "sources": "https://github.com/anviaan/InventoryTweak",
+    "issues": "https://github.com/anviaan/InventoryTweak/issues"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/inventorytweak",
+        "modmenu.modrinth": "https://modrinth.com/mod/inventorytweak"
+      }
+    }
+  },
+  "license": "${license}",
+  "icon": "assets/inventorytweak/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "net.anvian.inventorytweaks.FabricClient"
+    ],
+    "modmenu": [
+      "net.anvian.inventorytweaks.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=${java_version}",
+    "cloth-config": ">=${cloth_config_version}",
+    "anvianslib": ">=${anvianslib_version}"
+  },
+  "suggests": {
+    "modmenu": ">=${modmenu_version}"
+  }
+}
