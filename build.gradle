@@ -1,74 +1,68 @@
 plugins {
-    id 'fabric-loom' version '1.10-SNAPSHOT'
+    id 'fabric-loom' version '1.7-SNAPSHOT' apply false
+    id 'net.neoforged.moddev' version '0.1.110' apply false
 }
 
-def COMPATIBLE_VERSIONS = ['1.21', '1.22']
+group = project.group
+version = project.version
 
-tasks.register("printEnv") {
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            name = 'Repsy Anvian'
+            url = uri('https://repo.repsy.io/mvn/anvian/anvians-lib')
+            mavenContent { includeGroup 'net.anvian.anvianslib' }
+        }
+        maven {
+            name = 'Shedaniel'
+            url = uri('https://maven.shedaniel.me/')
+            mavenContent { includeGroup 'me.shedaniel.cloth' }
+        }
+        maven {
+            name = 'TerraformersMC'
+            url = uri('https://maven.terraformersmc.com/')
+            mavenContent { includeGroup 'com.terraformersmc' }
+        }
+        maven {
+            url = 'https://libraries.minecraft.net'
+            content { includeModule('org.lwjgl', 'lwjgl-freetype') }
+        }
+    }
+}
+
+tasks.register('build') {
+    group = 'build'
+    description = 'Build all loader distributions.'
+}
+
+tasks.register('clean') {
+    group = 'build'
+    description = 'Clean all loader distributions.'
+}
+
+gradle.projectsEvaluated {
+    tasks.named('build') {
+        dependsOn subprojects.collect { it.tasks.named('build') }
+    }
+    tasks.named('clean') {
+        dependsOn subprojects.collect { it.tasks.named('clean') }
+    }
+}
+
+tasks.register('printEnv') {
     doLast {
-        def envFile = new File(System.getenv("GITHUB_ENV"))
-        envFile.append("MOD_VERSION=${project.mod_version}\n")
-        envFile.append("RELEASE_NAME=${project.archives_base_name}-${project.mod_version}\n")
-        envFile.append("GAME_VERSIONS=${COMPATIBLE_VERSIONS}\n")
-    }
-}
-
-version = project.mod_version
-group = project.maven_group
-
-base {
-    archivesName = project.archives_base_name
-}
-
-repositories {
-    maven {
-        url = "https://maven.terraformersmc.com/"
-    }
-    maven {
-        url = uri("https://maven.wispforest.io/releases")
-    }
-    maven {
-        name = 'Repsy Anvian'
-        url = 'https://repo.repsy.io/mvn/anvian/anvians-lib'
-    }
-}
-
-dependencies {
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-    modLocalRuntime("com.terraformersmc:modmenu:${project.modmenu_version}")
-
-    annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
-    include "io.wispforest:owo-sentinel:${project.owo_version}"
-
-    modImplementation "net.anvian.anvianslib:anvianslib-fabric-1.21:${project.anvianslib_version}"
-}
-
-processResources {
-    inputs.property "version", project.version
-
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version
-    }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    it.options.release = 21
-}
-
-java {
-    withSourcesJar()
-
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
-}
-
-jar {
-    from("LICENSE") {
-        rename { "${it}_${project.base.archivesName.get()}" }
+        def values = [
+                MOD_VERSION  : project.version.toString(),
+                RELEASE_NAME : "${mod_id}-${project.version}",
+                GAME_VERSIONS: minecraft_version_range.toString()
+        ]
+        values.each { key, value ->
+            println "${key}=${value}"
+            def githubEnv = System.getenv('GITHUB_ENV')
+            if (githubEnv != null) {
+                new File(githubEnv).append("${key}=${value}\n")
+            }
+        }
     }
 }

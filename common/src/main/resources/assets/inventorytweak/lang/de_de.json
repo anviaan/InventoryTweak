@@ -1,0 +1,17 @@
+{
+    "key.category.inventorytweak.inventorytweak": "Inventar-Optimierung",
+    "key.inventorytweak.sort_inventory_key": "Inventarsortierer-Schlüssel",
+    "text.autoconfig.inventorytweak/inventorytweak.title": "Inventar-Optimierungs-Konfigurationsbildschirm",
+    "text.autoconfig.inventorytweak/inventorytweak.category.sortingInventorySection": "Abschnitt „Inventar sortieren“",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateSortingInventory": "Sortierbestand aktivieren",
+    "text.autoconfig.inventorytweak/inventorytweak.option.sortType": "Sortiertyp",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.type": "Typ",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.name": "Name",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.rarity": "Seltenheit",
+    "text.autoconfig.inventorytweak/inventorytweak.category.durabilityWarningSection": "Abschnitt „Warnung zur Haltbarkeit“",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarning": "Haltbarkeitswarnung aktivieren",
+    "text.autoconfig.inventorytweak/inventorytweak.option.percentageDurabilityWarning": "Prozentuale Haltbarkeitswarnung",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarningSound": "Haltbarkeitswarnton aktivieren",
+    "text.autoconfig.inventorytweak/inventorytweak.option.durabilityWarningSoundVolume": "Haltbarkeitswarnton-Lautstärke",
+    "inventorytweak.durabilityWarningMessage": "Geringe Haltbarkeit"
+}

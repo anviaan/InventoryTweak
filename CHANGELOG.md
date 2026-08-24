@@ -1,3 +1,1 @@
-- Add Turkish Translation by @Hexasan
-- Fixing lang
-- Support for Minecraft 1.21.5
+- Port to Minecraft 1.21 multiloader with Fabric and NeoForge suppor
