@@ -1,0 +1,20 @@
+{
+  "key.category.inventorytweak.inventorytweak": "Inventory Tweak",
+  "key.inventorytweak.sort_inventory_key": "Envanter Sıralayıcı Tuş",
+
+  "text.autoconfig.inventorytweak/inventorytweak.title": "Inventory Tweak Ayar Ekranı",
+
+  "text.autoconfig.inventorytweak/inventorytweak.category.sortingInventorySection": "Envanter Sıralama Bölümü",
+  "text.autoconfig.inventorytweak/inventorytweak.option.activateSortingInventory": "Envanter Sıralamayı Aç",
+  "text.autoconfig.inventorytweak/inventorytweak.option.sortType": "Sıralama Türü",
+  "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.type": "Tür",
+  "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.name": "İsim",
+  "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.rarity": "Nadirlik",
+
+  "text.autoconfig.inventorytweak/inventorytweak.category.durabilityWarningSection": "Dayanıklılık Uyarısı Bölümü",
+  "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarning": "Dayanıklılık Uyarısını Aç",
+  "text.autoconfig.inventorytweak/inventorytweak.option.percentageDurabilityWarning": "Dayanıklılık Uyarısı Yüzdesi",
+  "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarningSound": "Dayanıklılık Uyarısı Sesini Aç",
+  "text.autoconfig.inventorytweak/inventorytweak.option.durabilityWarningSoundVolume": "Dayanıklılık Uyarısı Ses Düzeyi",
+  "inventorytweak.durabilityWarningMessage": "Düşük dayanıklılık"
+}

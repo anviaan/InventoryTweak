@@ -1,0 +1,17 @@
+{
+    "key.category.inventorytweak.inventorytweak": "Настройка инвентаря",
+    "key.inventorytweak.sort_inventory_key": "Ключ сортировщика инвентаря",
+    "text.autoconfig.inventorytweak/inventorytweak.title": "Экран настройки инвентаря",
+    "text.autoconfig.inventorytweak/inventorytweak.category.sortingInventorySection": "Секция сортировки инвентаря",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateSortingInventory": "Активировать сортировку инвентаря",
+    "text.autoconfig.inventorytweak/inventorytweak.option.sortType": "Тип сортировки",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.type": "Тип",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.name": "Имя",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.rarity": "Редкость",
+    "text.autoconfig.inventorytweak/inventorytweak.category.durabilityWarningSection": "Раздел «Предупреждение о долговечности»",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarning": "Активировать предупреждение о долговечности",
+    "text.autoconfig.inventorytweak/inventorytweak.option.percentageDurabilityWarning": "Предупреждение о процентной прочности",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarningSound": "Активировать предупреждающий звук о долговечности",
+    "text.autoconfig.inventorytweak/inventorytweak.option.durabilityWarningSoundVolume": "Громкость звука предупреждения о долговечности",
+    "inventorytweak.durabilityWarningMessage": "Низкая прочность"
+}

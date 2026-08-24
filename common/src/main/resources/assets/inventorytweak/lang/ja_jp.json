@@ -1,0 +1,17 @@
+{
+    "key.category.inventorytweak.inventorytweak": "インベントリの調整",
+    "key.inventorytweak.sort_inventory_key": "在庫仕分けキー",
+    "text.autoconfig.inventorytweak/inventorytweak.title": "インベントリ調整設定画面",
+    "text.autoconfig.inventorytweak/inventorytweak.category.sortingInventorySection": "在庫整理セクション",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateSortingInventory": "在庫の並べ替えを有効にする",
+    "text.autoconfig.inventorytweak/inventorytweak.option.sortType": "並べ替えの種類",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.type": "タイプ",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.name": "名前",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.rarity": "希少性",
+    "text.autoconfig.inventorytweak/inventorytweak.category.durabilityWarningSection": "耐久性警告セクション",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarning": "耐久性警告を有効にする",
+    "text.autoconfig.inventorytweak/inventorytweak.option.percentageDurabilityWarning": "耐久性警告率",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarningSound": "耐久性警告音を有効にする",
+    "text.autoconfig.inventorytweak/inventorytweak.option.durabilityWarningSoundVolume": "耐久性警告音量",
+    "inventorytweak.durabilityWarningMessage": "耐久性が低い"
+}

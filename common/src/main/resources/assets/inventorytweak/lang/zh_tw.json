@@ -1,0 +1,20 @@
+{
+    "key.category.inventorytweak.inventorytweak": "Inventory Tweak《物品欄調整》",
+    "key.inventorytweak.sort_inventory_key": "物品欄排序鍵",
+    
+    "text.autoconfig.inventorytweak/inventorytweak.title": "Inventory Tweak《物品欄調整》設定畫面",
+    
+    "text.autoconfig.inventorytweak/inventorytweak.category.sortingInventorySection": "物品欄排序區",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateSortingInventory": "啟用物品欄排序",
+    "text.autoconfig.inventorytweak/inventorytweak.option.sortType": "排序類型",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.type": "類型",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.name": "名稱",
+    "text.autoconfig.inventorytweak/inventorytweak.enum.sortType.rarity": "稀有度",
+    
+    "text.autoconfig.inventorytweak/inventorytweak.category.durabilityWarningSection": "耐久度警告區",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarning": "啟用耐久度警告",
+    "text.autoconfig.inventorytweak/inventorytweak.option.percentageDurabilityWarning": "耐久度警告百分比",
+    "text.autoconfig.inventorytweak/inventorytweak.option.activateDurabilityWarningSound": "啟用耐久度警告音效",
+    "text.autoconfig.inventorytweak/inventorytweak.option.durabilityWarningSoundVolume": "耐久度警告音效音量",
+    "inventorytweak.durabilityWarningMessage": "耐久度過低"
+    }

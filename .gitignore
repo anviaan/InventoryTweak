@@ -28,9 +28,11 @@ bin/
 
 *.DS_Store
 
-# fabric
+# loader runs
 
 run/
+runs/
+**/runs/
 
 # java
 
