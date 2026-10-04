@@ -1,6 +1,6 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.16.3' apply false
-    id 'net.neoforged.moddev' version '2.0.141' apply false
+    id 'net.fabricmc.fabric-loom' version '1.18.2' apply false
+    id 'net.neoforged.moddev' version '2.0.148' apply false
 }
 
 group = project.group

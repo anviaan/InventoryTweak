@@ -1,4 +1,4 @@
-- Add Fabric and NeoForge support for Minecraft 26.2.
-- Update the mod version to 4.1.
-- Keep the nested Cloth Config file at `config/inventorytweak/inventorytweak.toml`.
-- Preserve the 26.2 translations and configuration labels.
+- Add Fabric and NeoForge support for Minecraft 26.3.
+- Update the mod version to 4.2.
+- Update the sorting keybinding for Minecraft 26.3’s SDL3 input system.
+- Preserve existing sorting behavior, translations, and configuration labels.

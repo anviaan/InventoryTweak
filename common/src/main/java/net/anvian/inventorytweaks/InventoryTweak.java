@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 public final class InventoryTweak {
     public static final String MOD_ID = "inventorytweak";
     public static final String MOD_NAME = "Inventory Tweak";
-    public static final String MOD_VERSION = "4.1";
+    public static final String MOD_VERSION = "4.2";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static ModConfig CONFIG;
 
